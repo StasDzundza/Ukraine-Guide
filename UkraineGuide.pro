@@ -1,15 +1,23 @@
-QT += quick
+QT += quick core network
 
 CONFIG += c++17
 
-SOURCES += \
-        main.cpp
+DEFINES += _CRT_SECURE_NO_WARNINGS QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
         resources/qml.qrc
 
+SOURCES += \
+        source/cpp/main.cpp \
+        source/cpp/resource_provider.cpp
+
+HEADERS += \
+    source/headers/resource_provider.h
+
+INCLUDEPATH += $$PWD/source/headers
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH = #$$PWD/resources/qml/settings
+QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
