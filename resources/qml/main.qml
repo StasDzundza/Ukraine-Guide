@@ -11,8 +11,8 @@ ApplicationWindow {
     title: qsTr("Ukraine Guide")
 
     StackView {
-        id: stackView
-        initialItem: "qrc:/qml/pages/HomePage.qml"
+        id: pageStack
+        initialItem: AppSettings.homePageUrl
         anchors.fill: parent
     }
 }

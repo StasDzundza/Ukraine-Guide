@@ -9,10 +9,12 @@ Page {
 
     title: qsTr("Home")
 
-    Rectangle {
+    Button {
         anchors.centerIn: parent
         width: parent.width / 2
-        height: parent.height / 6
-        color: Palette.headerColor
+        height: 40
+        text: qsTr("About")
+
+        onClicked: pageStack.push(AppSettings.aboutPageUrl)
     }
 }

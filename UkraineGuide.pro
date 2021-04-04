@@ -1,11 +1,12 @@
-QT += quick core network
+QT += quick core network svg
 
 CONFIG += c++17
 
 DEFINES += _CRT_SECURE_NO_WARNINGS QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
-        resources/qml.qrc
+        resources/qml.qrc \
+        resources/icons.qrc
 
 SOURCES += \
         source/cpp/main.cpp \
