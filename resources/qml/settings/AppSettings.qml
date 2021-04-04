@@ -6,7 +6,8 @@ QtObject {
     property real screenWidth: Screen.width
     property real screenHeight: Screen.height
 
-    // page url's
-    property string homePageUrl: "qrc:/qml/pages/HomePage.qml"
-    property string aboutPageUrl: "qrc:/qml/pages/AboutPage.qml"
+    // font sizes
+    property int blockTextFontSize: 13
+    property int titleFontSize: 18
+    property int buttonTextFontSize: 15
 }

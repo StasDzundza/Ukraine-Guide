@@ -9,6 +9,7 @@
 		
 		<file>qml/settings/AppSettings.qml</file>
 		<file>qml/settings/Palette.qml</file>
+		<file>qml/settings/Pages.qml</file>
 		<file>qml/settings/qmldir</file>
 		
 		<file>qml/components/Header.qml</file>

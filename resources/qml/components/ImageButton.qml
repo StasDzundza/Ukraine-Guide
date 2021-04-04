@@ -5,8 +5,6 @@ import "../settings"
 
 Image {
     id: imageButton
-    width: 25
-    height: 25
 
     signal clicked()
 

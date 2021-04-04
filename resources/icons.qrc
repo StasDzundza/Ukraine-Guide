@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/go-back-icon.svg</file>
+        <file>icons/arrow-back.svg</file>
     </qresource>
 </RCC>

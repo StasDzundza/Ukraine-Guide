@@ -11,9 +11,9 @@ Rectangle {
 
     ImageButton {
         id: backButton
-        source: "qrc:/icons/go-back-icon.svg"
+        source: "qrc:/icons/arrow-back.svg"
         anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 10
+        x: 10 // left margin
 
         onClicked: parent.backClicked()
     }
@@ -22,8 +22,8 @@ Rectangle {
         id: title
         text: parent.title
         anchors.centerIn: parent
-        color: Palette.headerFontColor
-        font.pointSize: 15
+        color: Palette.headerTextColor
+        font.pointSize: AppSettings.titleFontSize
         font.bold: true
     }
 }

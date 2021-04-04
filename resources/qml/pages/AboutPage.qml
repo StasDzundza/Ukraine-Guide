@@ -7,22 +7,26 @@ import "../components"
 Page {
     width: parent.width
     height: parent.height
-
     title: qsTr("About")
 
-    Header {
-        width: parent.width
-        height: 50
-        title: qsTr("About")
+    Rectangle {
+        anchors.fill: parent
+        color: Palette.backgroundColor
 
-        onBackClicked: pageStack.push(AppSettings.homePageUrl)
-    }
+        Header {
+            width: parent.width
+            height: 50
+            title: qsTr("About")
 
-    Text {
-        anchors.centerIn: parent
-        horizontalAlignment: Text.AlignHCenter
-        text: qsTr("Ukraine Guide mobile application.\nDiploma work of Stanislav Dzundza")
-        color: Palette.textBlockColor
-        font.pointSize: 12
+            onBackClicked: pageStack.push(Pages.homePageUrl)
+        }
+
+        Text {
+            anchors.centerIn: parent
+            horizontalAlignment: Text.AlignHCenter
+            text: qsTr("Ukraine Guide mobile application.\nDiploma work of Stanislav Dzundza")
+            color: Palette.blockTextColor
+            font.pointSize: AppSettings.blockTextFontSize
+        }
     }
 }

@@ -12,7 +12,7 @@ ApplicationWindow {
 
     StackView {
         id: pageStack
-        initialItem: AppSettings.homePageUrl
+        initialItem: Pages.homePageUrl
         anchors.fill: parent
     }
 }
