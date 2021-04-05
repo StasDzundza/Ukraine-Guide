@@ -4,8 +4,8 @@
             "engName": "Kyiv",
             "ukrName": "Київ",
             "population": 2962200,
-            "area": "839",
-            "koordinates": {
+            "area": 839,
+            "coordinates": {
                 "N": "50 27 00",
                 "E": "30 31 25"
             },
@@ -17,8 +17,8 @@
             "engName": "Ivano-Frankivsk",
             "ukrName": "Івано-Франківськ",
             "population": 1000000,
-            "area": "100",
-            "koordinates": {
+            "area": 100,
+            "coordinates": {
                 "N": "50 27 00",
                 "E": "30 31 25"
             },
@@ -30,9 +30,9 @@
             "engName": "Kalush",
             "ukrName": "Калуш",
             "population": 50000,
-            "area": "500",
+            "area": 500,
             "oblast": "Івано-Франківська",
-            "koordinates": {
+            "coordinates": {
                 "N": "50 27 00",
                 "E": "30 31 25"
             },
@@ -47,10 +47,10 @@
             "engName": "Tuzhyliv",
             "ukrName": "Тужилів",
             "population": 50000,
-            "area": "2",
+            "area": 2,
             "oblast": "Івано-Франківська",
             "region": "Калуський",
-            "koordinates": {
+            "coordinates": {
                 "N": "50 27 00",
                 "E": "30 31 25"
             },

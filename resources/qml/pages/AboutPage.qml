@@ -18,7 +18,7 @@ Page {
             height: 50
             title: qsTr("About")
 
-            onBackClicked: pageStack.push(Pages.homePageUrl)
+            onBackClicked: pageStack.pop()
         }
 
         Text {

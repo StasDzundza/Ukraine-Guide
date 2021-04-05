@@ -1,10 +1,14 @@
 #pragma once
 
-#include <QJsonDocument>
+#include <QJsonObject>
 
-class ResourceProvider{
+class LocalityModel;
+
+class LocalityDataProvider {
 public:
-    // parsing methods
+    explicit LocalityDataProvider();
+
+    void fillLocalityModel(LocalityModel &model);
 private:
-    QJsonDocument mJsonDoc;
+    QJsonObject mLocalitiesObject;
 };

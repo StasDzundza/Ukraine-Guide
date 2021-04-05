@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 import "./settings"
+import "./pages"
 
 ApplicationWindow {
     id: window

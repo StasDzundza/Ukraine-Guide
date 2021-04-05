@@ -11,10 +11,12 @@ RESOURCES += \
 
 SOURCES += \
         source/cpp/locality_data_provider.cpp \
+        source/cpp/locality_model.cpp \
         source/cpp/main.cpp
 
 HEADERS += \
     source/headers/locality_data_provider.h \
+    source/headers/locality_model.h \
     source/headers/locality_type.h
 
 INCLUDEPATH += $$PWD/source/headers
