@@ -6,19 +6,25 @@ DEFINES += _CRT_SECURE_NO_WARNINGS QT_DEPRECATED_WARNINGS
 
 RESOURCES += \
         resources/qml.qrc \
-        resources/icons.qrc
+        resources/icons.qrc \
+        resources/app_data.qrc
 
 SOURCES += \
-        source/cpp/main.cpp \
-        source/cpp/resource_provider.cpp
+        source/cpp/locality_data_provider.cpp \
+        source/cpp/main.cpp
 
 HEADERS += \
-    source/headers/resource_provider.h
+    source/headers/locality_data_provider.h \
+    source/headers/locality_type.h
 
 INCLUDEPATH += $$PWD/source/headers
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+QML_IMPORT_PATH += \
+                $$PWD/ \
+                $$PWD/resources \
+                $$PWD/resources/qml
+
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =

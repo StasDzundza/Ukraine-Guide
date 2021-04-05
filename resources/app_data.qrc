@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>app_data/localities.json</file>
+    </qresource>
+</RCC>

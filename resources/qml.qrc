@@ -3,17 +3,17 @@
         <file>qml/main.qml</file>
         <file>qml/qtquickcontrols2.conf</file>
 		
+	<file>qml/pages/Pages.qml</file>
         <file>qml/pages/HomePage.qml</file>
         <file>qml/pages/AboutPage.qml</file>
-		<file>qml/pages/qmldir</file>
+	<file>qml/pages/qmldir</file>
 		
-		<file>qml/settings/AppSettings.qml</file>
-		<file>qml/settings/Palette.qml</file>
-		<file>qml/settings/Pages.qml</file>
-		<file>qml/settings/qmldir</file>
+	<file>qml/settings/AppSettings.qml</file>
+	<file>qml/settings/Palette.qml</file>
+	<file>qml/settings/qmldir</file>
 		
-		<file>qml/components/Header.qml</file>
-		<file>qml/components/ImageButton.qml</file>
-		<file>qml/components/qmldir</file>
+	<file>qml/components/Header.qml</file>
+	<file>qml/components/ImageButton.qml</file>
+	<file>qml/components/qmldir</file>
     </qresource>
 </RCC>
