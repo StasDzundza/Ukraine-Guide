@@ -2,7 +2,6 @@ import QtQuick 2.15
 
 import "../settings"
 
-
 Image {
     id: imageButton
 

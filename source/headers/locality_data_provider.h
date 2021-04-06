@@ -8,7 +8,7 @@ class LocalityDataProvider {
 public:
     explicit LocalityDataProvider();
 
-    void fillLocalityModel(LocalityModel &model);
+    void fillLocalityModel(const QString &keyName, LocalityModel &model);
 private:
     QJsonObject mLocalitiesObject;
 };

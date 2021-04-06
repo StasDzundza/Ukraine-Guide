@@ -20,5 +20,4 @@ private:
     QVector<QString> mCityNeighbours{};
     QVector<QString> mSettlementNeighbours{};
     QVector<QString> mVillageNeighbours{};
-    bool mIsDefined{};
 };
