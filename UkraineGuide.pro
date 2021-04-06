@@ -12,12 +12,14 @@ RESOURCES += \
 SOURCES += \
         source/cpp/application.cpp \
         source/cpp/locality_data_provider.cpp \
+        source/cpp/locality_list_model.cpp \
         source/cpp/locality_model.cpp \
         source/cpp/main.cpp
 
 HEADERS += \
     source/headers/application.h \
     source/headers/locality_data_provider.h \
+    source/headers/locality_list_model.h \
     source/headers/locality_model.h \
     source/headers/locality_type.h
 

@@ -6,17 +6,17 @@
 class LocalityType : public QObject {
     Q_OBJECT
 
-    public:
-        LocalityType() = default;
+public:
+    LocalityType() = default;
 
-        enum Type {
-            CITY,
-            SETTLEMENT,
-            VILLAGE
-        };
-        Q_ENUMS(Type)
+    enum Type {
+        CITY,
+        SETTLEMENT,
+        VILLAGE
+    };
+    Q_ENUMS(Type)
 
-        static void declareQML() {
-            qmlRegisterType<LocalityType>("com.UkraineGuide.LocalityType", 1, 0, "LocalityType");
-        }
+    static void declareQML() {
+        qmlRegisterType<LocalityType>("com.UkraineGuide.LocalityType", 1, 0, "LocalityType");
+    }
 };

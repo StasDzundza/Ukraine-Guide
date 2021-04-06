@@ -4,6 +4,7 @@
 
 #include "application.h"
 #include "locality_type.h"
+#include "locality_list_model.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
 
     // register types in qml
     LocalityType::declareQML();
+    LocalityListModel::declareQML();
 
     // make needed objects be in QML context as a context properties
     QQmlContext *context = engine.rootContext();
