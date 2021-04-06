@@ -17,6 +17,6 @@ class LocalityType : public QObject {
         Q_ENUMS(Type)
 
         static void declareQML() {
-            qmlRegisterType<LocalityType>("MyQMLEnums", 1, 0, "LocalityType");
+            qmlRegisterType<LocalityType>("com.UkraineGuide.LocalityType", 1, 0, "LocalityType");
         }
 };

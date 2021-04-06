@@ -15,5 +15,7 @@ ApplicationWindow {
         id: pageStack
         initialItem: Pages.homePageUrl
         anchors.fill: parent
+
+        Keys.onBackPressed: pop()
     }
 }
