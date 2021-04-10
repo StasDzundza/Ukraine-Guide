@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>icons/arrow-back.svg</file>
 	<file>icons/app-icon.png</file>
+	<file>icons/info.svg</file>
     </qresource>
 </RCC>

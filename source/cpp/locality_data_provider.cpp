@@ -9,7 +9,9 @@
 #include "locality_model.h"
 
 namespace  {
-static const QString LOCALITY_JSON_PATH = "qrc:/app_data/locality.json";
+    static const QString LOCALITY_JSON_PATH = "qrc:/app_data/localies.json";
+    static const QString FAVORITE_LOCALITIES_JSON_PATH = "qrc:/todo.json";
+    static const QString ROUTES_JSON_PATH = "qrc:/todo.json";
 }
 
 LocalityDataProvider::LocalityDataProvider() {

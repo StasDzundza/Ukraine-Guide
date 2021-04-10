@@ -5,8 +5,8 @@ import "../settings"
 import "../components"
 
 Page {
-    width: parent.width
-    height: parent.height
+    width: parent !== null ? parent.width : 0
+    height: parent !== null ? parent.height : 0
     title: qsTr("About")
 
     Rectangle {
@@ -16,7 +16,7 @@ Page {
         Header {
             width: parent.width
             height: 50
-            title: qsTr("About")
+            title: qsTr("Про нас")
 
             onBackClicked: pageStack.pop()
         }
@@ -24,7 +24,7 @@ Page {
         Text {
             anchors.centerIn: parent
             horizontalAlignment: Text.AlignHCenter
-            text: qsTr("Ukraine Guide mobile application.\nDiploma work of Stanislav Dzundza")
+            text: qsTr("Ukraine Guide - мобільний додаток для комфортних подорожей\nУкраїною.\nДипломна робота Дзундзи Станіслава Васильовича")
             color: Palette.blockTextColor
             font.pointSize: AppSettings.blockTextFontSize
         }
