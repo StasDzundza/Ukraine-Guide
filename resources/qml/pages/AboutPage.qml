@@ -5,8 +5,8 @@ import "../settings"
 import "../components"
 
 Page {
-    width: parent !== null ? parent.width : 0
-    height: parent !== null ? parent.height : 0
+    width: AppSettings.screenWidth
+    height: AppSettings.screenHeight
     title: qsTr("About")
 
     Rectangle {

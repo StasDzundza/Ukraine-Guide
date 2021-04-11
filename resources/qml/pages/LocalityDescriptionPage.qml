@@ -6,8 +6,8 @@ import "../components"
 
 Page {
     property var localityModel // : app.getCurModel
-    width: parent !== null ? parent.width : 0
-    height: parent !== null ? parent.height : 0
+    width: AppSettings.screenWidth
+    height: AppSettings.screenHeight
     title: qsTr("Locality list")
 
     Rectangle {

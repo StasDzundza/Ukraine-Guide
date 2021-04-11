@@ -1,14 +1,14 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls.Styles 1.4
 
 import "../settings"
 import "../components"
 
 Page {
-    width: parent.width
-    height: parent.height
+    objectName: "homePage"
+    width: AppSettings.screenWidth
+    height: AppSettings.screenHeight
     title: qsTr("Home")
 
     Rectangle {

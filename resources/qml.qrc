@@ -5,14 +5,15 @@
         <file>qml/pages/Pages.qml</file>
         <file>qml/pages/HomePage.qml</file>
         <file>qml/pages/AboutPage.qml</file>
-	<file>qml/pages/LocalityListPage.qml</file>
-	<file>qml/pages/LocalityDescriptionPage.qml</file>
+        <file>qml/pages/LocalityListPage.qml</file>
+        <file>qml/pages/LocalityDescriptionPage.qml</file>
         <file>qml/pages/qmldir</file>
         <file>qml/settings/AppSettings.qml</file>
         <file>qml/settings/Palette.qml</file>
         <file>qml/settings/qmldir</file>
         <file>qml/components/Header.qml</file>
         <file>qml/components/ImageButton.qml</file>
+        <file>qml/components/CustomButton.qml</file>
         <file>qml/components/qmldir</file>
     </qresource>
 </RCC>
