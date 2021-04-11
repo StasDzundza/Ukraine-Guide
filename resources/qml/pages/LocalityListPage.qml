@@ -24,7 +24,12 @@ Page {
                 onBackClicked: pageStack.pop()
             }
 
-            // switch чи тільки міста чи все інше
+            Switch {
+                id: showOnlyCitiesSwitch
+                Layout.leftMargin: 10
+                text: qsTr("Показувати тільки міста")
+                checked: false
+            }
 
             // область пошуку
 
@@ -42,6 +47,7 @@ Page {
                         color: Palette.listElementColor
                         border.color: Palette.listElementBorderColor
                         border.width: 1
+                        visible: localityType === "city" || !showOnlyCitiesSwitch.checked
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
@@ -56,7 +62,7 @@ Page {
                             anchors.right: parent.right
                             anchors.rightMargin: 20
                             source: "qrc:/icons/more-line.svg"
-                            onClicked: { // TODO open more menu}
+                            onClicked: { // TODO open more menu
                             }
                         }
                     }
