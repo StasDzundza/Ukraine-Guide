@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     Application ukraineGuideApp;
 
     QQmlApplicationEngine engine;
+    QObject::connect(&engine, &QQmlApplicationEngine::quit, &QGuiApplication::quit);
 
     // register types in qml
     LocalityType::declareQML();

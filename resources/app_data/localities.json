@@ -1,66 +1,53 @@
 {
-    "cities": {
-        "kyiv": {
-            "engName": "Kyiv",
-            "ukrName": "Київ",
-            "population": 2962200,
-            "area": 839,
-            "coordinates": {
-                "N": "50 27 00",
-                "E": "30 31 25"
-            },
-            "city-neighbours": [],
-            "village-neighbours": [],
-            "settlement-neighbours": []
+    "kyiv": {
+        "engName": "Kyiv",
+        "ukrName": "Київ",
+        "population": 2962200,
+        "area": 839,
+        "type": "city",
+        "coordinates": {
+            "N": "50 27 00",
+            "E": "30 31 25"
         },
-        "ivano-frankivsk": {
-            "engName": "Ivano-Frankivsk",
-            "ukrName": "Івано-Франківськ",
-            "population": 1000000,
-            "area": 100,
-            "coordinates": {
-                "N": "50 27 00",
-                "E": "30 31 25"
-            },
-            "city-neighbours": ["kalush"],
-            "village-neighbours": [],
-            "settlement-neighbours": []
+        "neighbours": []
+    },
+    "ivano-frankivsk": {
+        "engName": "Ivano-Frankivsk",
+        "ukrName": "Івано-Франківськ",
+        "population": 1000000,
+        "area": 100,
+        "type": "city",
+        "coordinates": {
+            "N": "50 27 00",
+            "E": "30 31 25"
         },
-        "kalush": {
-            "engName": "Kalush",
-            "ukrName": "Калуш",
-            "population": 50000,
-            "area": 500,
-            "oblast": "Івано-Франківська",
-            "coordinates": {
-                "N": "50 27 00",
-                "E": "30 31 25"
-            },
-            "city-neighbours": ["ivano-frankivsk"],
-            "village-neighbours": ["tuzhyliv1"],
-            "settlement-neighbours": []
-        }
+        "neighbours": ["kalush"]
     },
-    
-    "villages": {
-        "tuzhyliv1": {
-            "engName": "Tuzhyliv",
-            "ukrName": "Тужилів",
-            "population": 50000,
-            "area": 2,
-            "oblast": "Івано-Франківська",
-            "region": "Калуський",
-            "coordinates": {
-                "N": "50 27 00",
-                "E": "30 31 25"
-            },
-            "city-neighbours": ["kalush"],
-            "village-neighbours": [],
-            "settlement-neighbours": []
-        }
+    "kalush": {
+        "engName": "Kalush",
+        "ukrName": "Калуш",
+        "population": 50000,
+        "area": 500,
+        "oblast": "Івано-Франківська",
+        "type": "city",
+        "coordinates": {
+            "N": "50 27 00",
+            "E": "30 31 25"
+        },
+        "neighbours": ["ivano-frankivsk", "tuzhyliv1"]
     },
-
-    "settlements": {
-        
+    "tuzhyliv1": {
+        "engName": "Tuzhyliv",
+        "ukrName": "Тужилів",
+        "population": 50000,
+        "area": 2,
+        "oblast": "Івано-Франківська",
+        "region": "Калуський",
+        "type": "village",
+        "coordinates": {
+            "N": "50 27 00",
+            "E": "30 31 25"
+        },
+        "neighbours": ["kalush"]
     }
 }

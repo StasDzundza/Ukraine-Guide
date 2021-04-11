@@ -4,7 +4,6 @@
 
 #include "locality_data_provider.h"
 #include "locality_model.h"
-#include "locality_list_model.h"
 
 class Application : public QObject {
     Q_OBJECT
@@ -21,11 +20,20 @@ public:
     LocalityListModel *getLocalityListModel();
     Q_SIGNAL void localityListModelChanged(LocalityListModel *);
 
+    Q_PROPERTY(LocalityListModel *favoriteFocalityListModel READ getFavoriteLocalityListModel NOTIFY favoriteLocalityListModelChanged)
+    LocalityListModel *getFavoriteLocalityListModel();
+    Q_SIGNAL void favoriteLocalityListModelChanged(LocalityListModel *);
+
+    Q_PROPERTY(QString test READ getTest NOTIFY testChanged)
+    QString getTest();
+    Q_SIGNAL void testChanged(QString);
+
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
 
 private:
     LocalityModel mCurrentLocalityModel;
     LocalityDataProvider mLocalityDataProvider;
-    LocalityListModel mLocalitiesListModel;
+    LocalityListModel mAllLocalitiesListModel;
+    LocalityListModel mFavoriteLocalitiesListModel;
 };

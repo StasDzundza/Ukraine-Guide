@@ -29,7 +29,8 @@ INCLUDEPATH += $$PWD/source/headers
 QML_IMPORT_PATH += \
                 $$PWD/ \
                 $$PWD/resources \
-                $$PWD/resources/qml
+                $$PWD/resources/qml \
+                $$PWD/resources/app_data
 
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer

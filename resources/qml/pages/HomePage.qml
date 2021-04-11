@@ -25,6 +25,17 @@ Page {
             onClicked: pageStack.push(Pages.aboutPageUrl)
         }
 
+        ImageButton {
+            width: 40
+            height: 40
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            y: 20
+            source: "qrc:/icons/exit.svg"
+
+            onClicked: exitConfirmationPopup.open()
+        }
+
         ColumnLayout {
             anchors.centerIn: parent
 

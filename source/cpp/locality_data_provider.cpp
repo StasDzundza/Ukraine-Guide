@@ -9,9 +9,9 @@
 #include "locality_model.h"
 
 namespace  {
-    static const QString LOCALITY_JSON_PATH = "qrc:/app_data/localies.json";
-    static const QString FAVORITE_LOCALITIES_JSON_PATH = "qrc:/todo.json";
-    static const QString ROUTES_JSON_PATH = "qrc:/todo.json";
+static const QString LOCALITY_JSON_PATH = ":/app_data/localities.json";
+static const QString FAVORITE_LOCALITIES_JSON_PATH = ":/todo.json";
+static const QString ROUTES_JSON_PATH = ":/todo.json";
 }
 
 LocalityDataProvider::LocalityDataProvider() {
@@ -23,7 +23,7 @@ LocalityDataProvider::LocalityDataProvider() {
     mLocalitiesObject = jsonDoc.object();
 }
 
-void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityModel &model) {
+void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityModel &model) const {
     const QJsonObject &localityObject = mLocalitiesObject.value(keyName).toObject();
     model.mEngName = localityObject.value("engName").toString("");
     model.mUkrName = localityObject.value("ukrName").toString("");
@@ -31,24 +31,31 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     model.mArea = localityObject.value("area").toInt(0);
     model.mOblast = localityObject.value("oblast").toString("");
     model.mRegion = localityObject.value("region").toString("");
+    const QString &localityType = localityObject.value("type").toString("city");
+    if (localityType == "city"){
+        model.mType = LocalityType::CITY;
+    } else if (localityType == "settlement") {
+        model.mType = LocalityType::SETTLEMENT;
+    } else {
+        model.mType = LocalityType::VILLAGE;
+    }
     const QJsonArray &coordinatesArray = localityObject.value("coordinates").toArray();
     model.mCoordinates = {coordinatesArray.at(0).toString("0 0 0"), coordinatesArray.at(1).toString("0 0 0")};
 
-    const QJsonArray &cityNeighboursArray = localityObject.value("city-neighbours").toArray();
-    model.mCityNeighbours.clear();
-    std::transform(cityNeighboursArray.cbegin(), cityNeighboursArray.cend(), std::back_inserter(model.mCityNeighbours), [](const QJsonValue &value) {
+    const QJsonArray &cityNeighboursArray = localityObject.value("neighbours").toArray();
+    model.mNeighbours.clear();
+    std::transform(cityNeighboursArray.cbegin(), cityNeighboursArray.cend(), std::back_inserter(model.mNeighbours), [](const QJsonValue &value) {
         return value.toString();
     });
+}
 
-    const QJsonArray &settlementNeighboursArray = localityObject.value("settlement-neighbours").toArray();
-    model.mSettlementNeighbours.clear();
-    std::transform(settlementNeighboursArray.cbegin(), settlementNeighboursArray.cend(), std::back_inserter(model.mSettlementNeighbours), [](const QJsonValue &value) {
-        return value.toString();
-    });
-
-    const QJsonArray &villageNeighboursArray = localityObject.value("village-neighbours").toArray();
-    model.mVillageNeighbours.clear();
-    std::transform(villageNeighboursArray.cbegin(), villageNeighboursArray.cend(), std::back_inserter(model.mVillageNeighbours), [](const QJsonValue &value) {
-        return value.toString();
-    });
+QVector<LocalityListEntity> LocalityDataProvider::getLocalitiesList() const {
+    QVector<LocalityListEntity> localitiesList(mLocalitiesObject.keys().size());
+    size_t i = 0;
+    foreach(const QString& key, mLocalitiesObject.keys()) {
+        const QJsonObject &localityObject = mLocalitiesObject.value(key).toObject();
+        localitiesList[i++] = {key, localityObject.value("ukrName").toString(), localityObject.value("engName").toString(),
+                               localityObject.value("type").toString()};
+    }
+    return localitiesList;
 }

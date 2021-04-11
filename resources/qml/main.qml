@@ -16,6 +16,17 @@ ApplicationWindow {
         initialItem: Pages.homePageUrl
         anchors.fill: parent
 
-        Keys.onBackPressed: pop()
+        Keys.onBackPressed: {
+            if (pageStack.empty) {
+                exitConfirmationPopup.open()
+            }
+        }
+    }
+
+    Popup {
+        id: exitConfirmationPopup
+        anchors.centerIn: parent
+        width: parent.width / 2
+        height: width
     }
 }

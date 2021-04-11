@@ -7,6 +7,7 @@ QHash<int, QByteArray> LocalityListModel::roleNames() const {
         {KeyNameRole, "keyName"},
         {UkrNameRole, "ukrName"},
         {EngNameRole, "engName"},
+        {LocalityTypeRole, "localityType"}
     };
 }
 
@@ -23,6 +24,8 @@ QVariant LocalityListModel::data(const QModelIndex &index, int role) const {
                 return mAllLocalitiesList.at(index.row()).mUkrName;
             case EngNameRole:
                 return mAllLocalitiesList.at(index.row()).mEngName;
+            case LocalityTypeRole:
+                return mAllLocalitiesList.at(index.row()).mType;
             default:
                 return QVariant();
         }

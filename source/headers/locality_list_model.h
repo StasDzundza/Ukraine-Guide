@@ -4,13 +4,13 @@
 #include <QVector>
 
 struct LocalityListEntity {
-    QString mKeyName, mUkrName, mEngName;
+    QString mKeyName, mUkrName, mEngName, mType;
 };
 
 class LocalityListModel : public QAbstractListModel {
     Q_OBJECT
    public:
-    enum LocalityRole { KeyNameRole = Qt::DisplayRole, UkrNameRole, EngNameRole };
+    enum LocalityRole { KeyNameRole = Qt::DisplayRole, UkrNameRole, EngNameRole, LocalityTypeRole };
     Q_ENUM(LocalityRole)
 
     explicit LocalityListModel(QObject *parent = nullptr);

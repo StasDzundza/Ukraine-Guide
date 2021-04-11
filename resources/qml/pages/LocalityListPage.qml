@@ -24,7 +24,7 @@ Page {
                 onBackClicked: pageStack.pop()
             }
 
-            // Галочки із тим, що показувати
+            // switch чи тільки міста чи все інше
 
             // область пошуку
 
@@ -35,10 +35,34 @@ Page {
                 ListView {
                     clip: true
                     width: localityListPage.width
-                    model: 50
-                    delegate: ItemDelegate {
-                        text: "Locality " + (index + 1)
+                    model: application.localityListModel
+                    delegate: Rectangle {
                         width: localityListPage.width
+                        height: 40
+                        color: Palette.listElementColor
+                        border.color: Palette.listElementBorderColor
+                        border.width: 1
+
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            x: 20
+                            text: ukrName
+                            color: Palette.blockTextColor
+                            font.pointSize: AppSettings.blockTextFontSize
+                        }
+
+                        ImageButton {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.right
+                            anchors.rightMargin: 20
+                            source: "qrc:/icons/more-line.svg"
+                            onClicked: { // TODO open more menu}
+                            }
+                        }
+                    }
+
+                    ScrollBar.vertical: ScrollBar {
+                        policy: ScrollBar.AlwaysOn
                     }
                 }
             }

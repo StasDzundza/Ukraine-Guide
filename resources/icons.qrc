@@ -3,5 +3,7 @@
         <file>icons/arrow-back.svg</file>
 	<file>icons/app-icon.png</file>
 	<file>icons/info.svg</file>
+	<file>icons/more-line.svg</file>
+	<file>icons/exit.svg</file>
     </qresource>
 </RCC>

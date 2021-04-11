@@ -8,4 +8,6 @@ QtObject {
     readonly property string headerColor: "#e8e889"
     readonly property string headerTextColor: "#000000"
     readonly property string blockTextColor: "#000000"
+    readonly property string listElementColor: "#d3f59d"
+    readonly property string listElementBorderColor: "#000000"
 }
