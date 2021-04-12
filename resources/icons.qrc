@@ -5,5 +5,7 @@
 	<file>icons/info.svg</file>
 	<file>icons/more-line.svg</file>
 	<file>icons/exit.svg</file>
+	<file>icons/search.svg</file>
+	<file>icons/edit-clear.svg</file>
     </qresource>
 </RCC>

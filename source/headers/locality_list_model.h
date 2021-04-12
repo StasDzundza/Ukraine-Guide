@@ -2,6 +2,7 @@
 
 #include <QAbstractListModel>
 #include <QVector>
+#include <QQmlEngine>
 
 struct LocalityListEntity {
     QString mKeyName, mUkrName, mEngName, mType;
@@ -18,9 +19,11 @@ class LocalityListModel : public QAbstractListModel {
     int rowCount(const QModelIndex & = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
-    void append(const LocalityListEntity &entity);
-    void clear();
-    void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
+
+    Q_INVOKABLE void append(const LocalityListEntity &entity);
+    Q_INVOKABLE void clear();
+    Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
+    Q_INVOKABLE void fillSearchModel(const QString &prefix, LocalityListModel* other);
 
     static void declareQML();
 

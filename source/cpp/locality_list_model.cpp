@@ -1,7 +1,5 @@
 #include "locality_list_model.h"
 
-#include <QQmlEngine>
-
 QHash<int, QByteArray> LocalityListModel::roleNames() const {
     return {
         {KeyNameRole, "keyName"},
@@ -54,7 +52,18 @@ void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities)
     dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
 }
 
+void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel *other) {
+    QVector<LocalityListEntity> result;
+    if (!prefix.isEmpty()) {
+        std::copy_if(mAllLocalitiesList.cbegin(), mAllLocalitiesList.cend(), std::back_inserter(result),
+            [prefix](const LocalityListEntity &locality) {
+                return locality.mUkrName.startsWith(prefix, Qt::CaseInsensitive) || locality.mEngName.startsWith(prefix, Qt::CaseInsensitive);
+            });
+    }
+    other->resetList(result);
+}
+
 void LocalityListModel::declareQML() {
-    qmlRegisterType<LocalityListModel>("com.UkraineGuide.LocalityList", 1, 0, "LocalityList");
+    qmlRegisterType<LocalityListModel>("com.UkraineGuide.LocalityListModel", 1, 0, "LocalityListModel");
 }
 

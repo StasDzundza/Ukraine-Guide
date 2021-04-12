@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.15
 import "../settings"
 import "../components"
 
+import com.UkraineGuide.LocalityListModel 1.0
+
 Page {
     id: localityListPage
     width: AppSettings.screenWidth
@@ -31,16 +33,66 @@ Page {
                 checked: false
             }
 
-            // область пошуку
+            Rectangle {
+                id: searchArea
+                Layout.preferredWidth: localityListPage.width - 20
+                Layout.preferredHeight: 40
+                Layout.alignment: Qt.AlignHCenter
+                color: "transparent"
+                border.color: Palette.borderColor
+                border.width: 1
+                radius: 10
+
+                Row {
+                    anchors.verticalCenter: parent.verticalCenter
+                    leftPadding: 10
+                    spacing: 5
+
+                    ImageButton {
+                        id: searchImage
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 20
+                        height: 20
+                        source: "qrc:/icons/search.svg"
+                        onClicked: searchField.forceActiveFocus()
+                    }
+
+                    TextInput {
+                        id: searchField
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: localityListPage.width - searchImage.width - clearInput.width - 50
+                        color: Palette.blockTextColor
+                        font.pointSize: AppSettings.blockTextFontSize
+                        wrapMode: TextInput.Wrap
+                        maximumLength: 20
+
+                        onDisplayTextChanged: application.localityListModel.fillSearchModel(displayText, searchModel)
+                    }
+
+                    ImageButton {
+                        id: clearInput
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 20
+                        height: 20
+                        source: "qrc:/icons/edit-clear.svg"
+                        onClicked: searchField.text = ""
+                    }
+                }
+            }
+
+            LocalityListModel {
+                id: searchModel
+            }
 
             ScrollView {
                 Layout.preferredWidth: localityListPage.width
                 Layout.preferredHeight: localityListPage.height - 60
 
                 ListView {
+                    id: localityList
                     clip: true
                     width: localityListPage.width
-                    model: application.localityListModel
+                    model: searchField.displayText === "" ? application.localityListModel : searchModel
                     delegate: Rectangle {
                         width: localityListPage.width
                         height: 40
