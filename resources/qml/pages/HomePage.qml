@@ -44,7 +44,7 @@ Page {
                 height: 40
                 text: qsTr("Населені пункти України")
 
-                onClicked: pageStack.push(Pages.localityListPageUrl)
+                onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.localityListModel})
             }
         }
     }

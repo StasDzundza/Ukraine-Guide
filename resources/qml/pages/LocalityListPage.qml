@@ -9,6 +9,7 @@ import com.UkraineGuide.LocalityListModel 1.0
 
 Page {
     id: localityListPage
+    property var localityListModel
     width: AppSettings.screenWidth
     height: AppSettings.screenHeight
     title: qsTr("Locality list")
@@ -20,7 +21,7 @@ Page {
         ColumnLayout {
             Header {
                 Layout.preferredWidth: localityListPage.width
-                Layout.preferredHeight: 50
+                Layout.preferredHeight: AppSettings.headerHeight
                 title: qsTr("Населені пункти України")
 
                 onBackClicked: pageStack.pop()
@@ -66,7 +67,7 @@ Page {
                         wrapMode: TextInput.Wrap
                         maximumLength: 20
 
-                        onDisplayTextChanged: application.localityListModel.fillSearchModel(displayText, searchModel)
+                        onDisplayTextChanged: localityListModel.fillSearchModel(displayText, searchModel)
                     }
 
                     ImageButton {
@@ -92,7 +93,7 @@ Page {
                     id: localityList
                     clip: true
                     width: localityListPage.width
-                    model: searchField.displayText === "" ? application.localityListModel : searchModel
+                    model: searchField.displayText === "" ? localityListModel : searchModel
                     delegate: Rectangle {
                         width: localityListPage.width
                         height: 40
@@ -115,6 +116,15 @@ Page {
                             anchors.rightMargin: 20
                             source: "qrc:/icons/more-line.svg"
                             onClicked: { // TODO open more menu
+                            }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+
+                            onClicked: {
+                                application.loadLocalityModel(keyName)
+                                pageStack.push(Pages.localityDescriptionPageUrl, {"localityModel": application.currentLocalityModel})
                             }
                         }
                     }

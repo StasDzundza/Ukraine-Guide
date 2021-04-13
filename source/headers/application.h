@@ -24,10 +24,6 @@ public:
     LocalityListModel *getFavoriteLocalityListModel();
     Q_SIGNAL void favoriteLocalityListModelChanged(LocalityListModel *);
 
-    Q_PROPERTY(QString test READ getTest NOTIFY testChanged)
-    QString getTest();
-    Q_SIGNAL void testChanged(QString);
-
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
 

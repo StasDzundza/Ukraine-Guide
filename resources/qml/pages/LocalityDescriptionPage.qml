@@ -1,11 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import "../settings"
 import "../components"
 
 Page {
-    property var localityModel // : app.getCurModel
+    id: localityDescriptionPage
+    property var localityModel
     width: AppSettings.screenWidth
     height: AppSettings.screenHeight
     title: qsTr("Locality list")
@@ -14,12 +16,56 @@ Page {
         anchors.fill: parent
         color: Palette.backgroundColor
 
-        Header {
-            width: parent.width
-            height: 50
-            title: ""// model.ukrName
+        ColumnLayout {
+            Rectangle {
+                id: header
+                property string title: qsTr("Header")
+                Layout.preferredWidth: localityDescriptionPage.width
+                Layout.preferredHeight: AppSettings.headerHeight
+                color: Palette.headerColor
 
-            onBackClicked: pageStack.pop()
+                ImageButton {
+                    id: backButton
+                    source: "qrc:/icons/arrow-back.svg"
+                    anchors.verticalCenter: parent.verticalCenter
+                    x: 10 // left margin
+
+                    onClicked: pageStack.pop()
+                }
+
+                ImageButton {
+                    width: 30
+                    height: 30
+                    source: localityModel.isFavorite ? "qrc:/icons/fill-star.svg" : "qrc:/icons/star.svg"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: title.left
+                    anchors.rightMargin: 15
+
+                    onClicked: localityModel.changeFavoriteStatus()
+                }
+
+                Text {
+                    id: title
+                    text: localityModel.ukrName
+                    anchors.centerIn: parent
+                    color: Palette.headerTextColor
+                    font.pointSize: AppSettings.titleFontSize
+                    font.bold: true
+                }
+
+                ImageButton {
+                    width: 30
+                    height: 30
+                    source: "qrc:/icons/menu.svg"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: header.right
+                    anchors.rightMargin: 10
+
+                    onClicked: {
+                        // TODO open menu or side bar with options
+                    }
+                }
+            }
         }
     }
 }

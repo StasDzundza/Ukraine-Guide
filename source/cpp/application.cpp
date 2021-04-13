@@ -24,12 +24,9 @@ LocalityListModel *Application::getFavoriteLocalityListModel() {
     return &mFavoriteLocalitiesListModel;
 }
 
-QString Application::getTest() {
-    return "Test";
-}
-
 void Application::loadLocalityModel(const QString &localityKeyName) {
    mLocalityDataProvider.fillLocalityModel(localityKeyName, mCurrentLocalityModel);
+   // TODO check if locality is in favorite list and set corresponding property
    emit currentLocalityModelChanged(&mCurrentLocalityModel);
 }
 

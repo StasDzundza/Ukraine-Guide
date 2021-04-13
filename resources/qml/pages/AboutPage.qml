@@ -15,7 +15,7 @@ Page {
 
         Header {
             width: parent.width
-            height: 50
+            height: AppSettings.headerHeight
             title: qsTr("Про нас")
 
             onBackClicked: pageStack.pop()

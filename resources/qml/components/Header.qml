@@ -8,6 +8,7 @@ Rectangle {
     color: Palette.headerColor
 
     signal backClicked()
+    signal starClicked()
 
     ImageButton {
         id: backButton

@@ -2,7 +2,6 @@
 
 #include <QAbstractListModel>
 #include <QVector>
-#include <QQmlEngine>
 
 struct LocalityListEntity {
     QString mKeyName, mUkrName, mEngName, mType;

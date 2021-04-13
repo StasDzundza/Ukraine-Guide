@@ -1,13 +1,16 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QSslSocket>
 
 #include "application.h"
 #include "locality_type.h"
 #include "locality_list_model.h"
+#include "locality_model.h"
 
 int main(int argc, char *argv[])
 {
+    qDebug() << "Device supports OpenSSL: " << QSslSocket::supportsSsl();
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
@@ -22,6 +25,7 @@ int main(int argc, char *argv[])
     // register types in qml
     LocalityType::declareQML();
     LocalityListModel::declareQML();
+    LocalityModel::declareQML();
 
     // make needed objects be in QML context as a context properties
     QQmlContext *context = engine.rootContext();

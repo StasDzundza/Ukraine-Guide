@@ -5,7 +5,6 @@
 
 class LocalityType : public QObject {
     Q_OBJECT
-
 public:
     enum Type {
         CITY,
@@ -20,6 +19,11 @@ public:
 
     LocalityType & operator=(const Type &type){
         mType = type;
+        return *this;
+    }
+
+    LocalityType & operator=(const LocalityType &other){
+        mType = other.mType;
         return *this;
     }
 

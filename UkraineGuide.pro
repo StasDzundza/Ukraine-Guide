@@ -53,3 +53,4 @@ DISTFILES += \
     android/res/values/libs.xml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+android: include(C:/Users/STAS/AppData/Local/Android/Sdk/android_openssl/openssl.pri) # FIXME add 3rdparty static lib

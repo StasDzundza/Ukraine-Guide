@@ -1,3 +1,5 @@
+#include <QQmlEngine>
+
 #include "locality_list_model.h"
 
 QHash<int, QByteArray> LocalityListModel::roleNames() const {
