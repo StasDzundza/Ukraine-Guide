@@ -6,6 +6,7 @@
 
 #include "locality_data_provider.h"
 #include "locality_type.h"
+#include "locality_list_entity.h"
 
 class LocalityModel : public QObject {
     Q_OBJECT
@@ -48,8 +49,9 @@ public:
     LocalityType getType() const;
     Q_SIGNAL void typeChanged();
 
-    Q_PROPERTY(bool isFavorite READ isFavorite NOTIFY isFavoriteChanged)
+    Q_PROPERTY(bool isFavorite READ isFavorite WRITE setFavorite NOTIFY isFavoriteChanged)
     bool isFavorite() const;
+    void setFavorite(const bool isFavorite);
     Q_SIGNAL void isFavoriteChanged();
 
     // qml methods
@@ -57,6 +59,11 @@ public:
 
     // other methods
     static void declareQML();
+    void allPropertiesChanged();
+
+    // signals
+    Q_SIGNAL void favoriteLocalityAdded(const LocalityListEntity &locality);
+    Q_SIGNAL void favoriteLocalityRemoved(const LocalityListEntity &locality);
 
 private:
     QString mKeyName{}, mUkrName{}, mEngName{};

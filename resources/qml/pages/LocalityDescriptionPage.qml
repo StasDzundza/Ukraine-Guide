@@ -7,7 +7,7 @@ import "../components"
 
 Page {
     id: localityDescriptionPage
-    property var localityModel
+    property var localityModel: application.currentLocalityModel
     width: AppSettings.screenWidth
     height: AppSettings.screenHeight
     title: qsTr("Locality list")

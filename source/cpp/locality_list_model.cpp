@@ -1,4 +1,5 @@
 #include <QQmlEngine>
+#include <algorithm>
 
 #include "locality_list_model.h"
 
@@ -10,6 +11,8 @@ QHash<int, QByteArray> LocalityListModel::roleNames() const {
         {LocalityTypeRole, "localityType"}
     };
 }
+
+bool LocalityListModel::isEmpty() const { return mAllLocalitiesList.isEmpty(); }
 
 LocalityListModel::LocalityListModel(QObject *parent) : QAbstractListModel(parent) {}
 
@@ -38,12 +41,35 @@ void LocalityListModel::append(const LocalityListEntity &entity) {
     beginInsertRows(QModelIndex(), row, row);
     mAllLocalitiesList.insert(row, entity);
     endInsertRows();
+    emit isEmptyChanged();
+}
+
+void LocalityListModel::remove(const LocalityListEntity &entity) {
+    auto it = std::find_if(mAllLocalitiesList.cbegin(), mAllLocalitiesList.cend(), [&entity](const LocalityListEntity &curEntity){
+        return curEntity.mKeyName == entity.mKeyName;
+    });
+    int row = std::distance(mAllLocalitiesList.cbegin(), it);
+    beginRemoveRows(QModelIndex(), row, row);
+    mAllLocalitiesList.removeAt(row);
+    endRemoveRows();
+    emit isEmptyChanged();
+}
+
+bool LocalityListModel::contains(const QString &keyName) {
+    if (mAllLocalitiesList.isEmpty()) {
+        return false;
+    }
+    auto it = std::find_if(mAllLocalitiesList.cbegin(), mAllLocalitiesList.cend(), [&keyName](const LocalityListEntity &entity){
+        return keyName == entity.mKeyName;
+    });
+    return it != mAllLocalitiesList.end();
 }
 
 void LocalityListModel::clear() {
     beginResetModel();
     mAllLocalitiesList.clear();
     endResetModel();
+    emit isEmptyChanged();
 }
 
 void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities) {
@@ -52,6 +78,7 @@ void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities)
     mAllLocalitiesList = localities;
     endResetModel();
     dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+    emit isEmptyChanged();
 }
 
 void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel *other) {

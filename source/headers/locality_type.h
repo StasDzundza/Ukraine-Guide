@@ -27,6 +27,19 @@ public:
         return *this;
     }
 
+    static QString toString(const LocalityType &type) {
+        switch (type.mType) {
+            case Type::CITY:
+                return "city";
+            case Type::SETTLEMENT:
+                return "settlement";
+            case Type::VILLAGE:
+                return "village";
+            default:
+                return "city";
+        }
+    }
+
     static void declareQML() {
         qmlRegisterType<LocalityType>("com.UkraineGuide.LocalityType", 1, 0, "LocalityType");
     }

@@ -23,14 +23,32 @@ LocalityType LocalityModel::getType() const { return mType; }
 
 bool LocalityModel::isFavorite() const { return mIsFavorite; }
 
+void LocalityModel::setFavorite(const bool isFavorite) { mIsFavorite = isFavorite; }
+
 //qml methods
 void LocalityModel::changeFavoriteStatus() {
     mIsFavorite = !mIsFavorite;
     emit isFavoriteChanged();
 
-    // send signal to application and remove or add locality to favorite list
+    if (mIsFavorite) {
+        emit favoriteLocalityAdded({mKeyName, mUkrName, mEngName, LocalityType::toString(mType)});
+    } else {
+        emit favoriteLocalityRemoved({mKeyName, mUkrName, mEngName, LocalityType::toString(mType)});
+    }
 }
 
 void LocalityModel::declareQML() {
     qmlRegisterType<LocalityListModel>("com.UkraineGuide.LocalityModel", 1, 0, "LocalityModel");
+}
+
+void LocalityModel::allPropertiesChanged() {
+    keyNameChanged();
+    ukrNameChanged();
+    engNameChanged();
+    oblastChanged();
+    regionChanged();
+    populationChanged();
+    areaChanged();
+    typeChanged();
+    isFavoriteChanged();
 }

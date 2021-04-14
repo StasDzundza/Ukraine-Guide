@@ -37,14 +37,21 @@ Page {
         }
 
         ColumnLayout {
+            spacing: 20
             anchors.centerIn: parent
 
             Button {
-                width: parent.width / 2
-                height: 40
                 text: qsTr("Населені пункти України")
+                Layout.alignment: Qt.AlignHCenter
 
                 onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.localityListModel})
+            }
+
+            Button {
+                text: qsTr("Улюблені місця")
+                Layout.alignment: Qt.AlignHCenter
+
+                onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.favoriteFocalityListModel})
             }
         }
     }

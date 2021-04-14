@@ -3,9 +3,7 @@
 #include <QAbstractListModel>
 #include <QVector>
 
-struct LocalityListEntity {
-    QString mKeyName, mUkrName, mEngName, mType;
-};
+#include "locality_list_entity.h"
 
 class LocalityListModel : public QAbstractListModel {
     Q_OBJECT
@@ -19,7 +17,13 @@ class LocalityListModel : public QAbstractListModel {
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
 
+    Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
+    bool isEmpty() const;
+    Q_SIGNAL void isEmptyChanged();
+
     Q_INVOKABLE void append(const LocalityListEntity &entity);
+    Q_INVOKABLE void remove(const LocalityListEntity &entity);
+    Q_INVOKABLE bool contains(const QString &keyName);
     Q_INVOKABLE void clear();
     Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
     Q_INVOKABLE void fillSearchModel(const QString &prefix, LocalityListModel* other);

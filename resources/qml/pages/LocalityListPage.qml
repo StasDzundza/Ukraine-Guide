@@ -81,6 +81,15 @@ Page {
                 }
             }
 
+            Text {
+                Layout.alignment: Text.AlignHCenter
+                text: qsTr("Список порожній.")
+                color: Palette.headerTextColor
+                font.pointSize: AppSettings.titleFontSize
+                font.bold: true
+                visible: localityList.model.isEmpty
+            }
+
             LocalityListModel {
                 id: searchModel
             }
@@ -123,8 +132,9 @@ Page {
                             anchors.fill: parent
 
                             onClicked: {
+                                searchField.focus = false
                                 application.loadLocalityModel(keyName)
-                                pageStack.push(Pages.localityDescriptionPageUrl, {"localityModel": application.currentLocalityModel})
+                                pageStack.push(Pages.localityDescriptionPageUrl)
                             }
                         }
                     }

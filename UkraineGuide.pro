@@ -19,6 +19,7 @@ SOURCES += \
 HEADERS += \
     source/headers/application.h \
     source/headers/locality_data_provider.h \
+    source/headers/locality_list_entity.h \
     source/headers/locality_list_model.h \
     source/headers/locality_model.h \
     source/headers/locality_type.h

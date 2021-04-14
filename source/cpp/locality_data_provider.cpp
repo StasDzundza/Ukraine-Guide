@@ -25,6 +25,7 @@ LocalityDataProvider::LocalityDataProvider() {
 
 void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityModel &model) const {
     const QJsonObject &localityObject = mLocalitiesObject.value(keyName).toObject();
+    model.mKeyName = keyName;
     model.mEngName = localityObject.value("engName").toString("");
     model.mUkrName = localityObject.value("ukrName").toString("");
     model.mPopulation = localityObject.value("population").toInt(0);

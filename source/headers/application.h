@@ -27,7 +27,13 @@ public:
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
 
+    // slots
+    Q_SLOT void onFavoriteLocalityAdded(const LocalityListEntity &locality);
+    Q_SLOT void onFavoriteLocalityRemoved(const LocalityListEntity &locality);
+
 private:
+    void setupConnections();
+
     LocalityModel mCurrentLocalityModel;
     LocalityDataProvider mLocalityDataProvider;
     LocalityListModel mAllLocalitiesListModel;
