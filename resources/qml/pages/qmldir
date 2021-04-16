@@ -3,4 +3,5 @@ HomePage 1.0 HomePage.qml
 AboutPage 1.0 AboutPage.qml
 LocalityListPage 1.0 LocalityListPage.qml
 LocalityDescriptionPage 1.0 LocalityDescriptionPage.qml
+MapViewPage 1.0 MapViewPage.qml
 singleton Pages 1.0 Pages.qml

@@ -5,10 +5,7 @@
         "population": 2962200,
         "area": 839,
         "type": "city",
-        "coordinates": {
-            "N": "50 27 00",
-            "E": "30 31 25"
-        },
+        "coordinates": [50.4480, 30.5231],
         "neighbours": []
     },
     "ivano-frankivsk": {
@@ -17,10 +14,7 @@
         "population": 1000000,
         "area": 100,
         "type": "city",
-        "coordinates": {
-            "N": "50 27 00",
-            "E": "30 31 25"
-        },
+        "coordinates": [48.9219, 24.7121],
         "neighbours": ["kalush"]
     },
     "kalush": {
@@ -30,10 +24,7 @@
         "area": 500,
         "oblast": "Івано-Франківська",
         "type": "city",
-        "coordinates": {
-            "N": "50 27 00",
-            "E": "30 31 25"
-        },
+        "coordinates": [49.0292, 24.3645],
         "neighbours": ["ivano-frankivsk", "tuzhyliv1"]
     },
     "tuzhyliv1": {
@@ -44,10 +35,7 @@
         "oblast": "Івано-Франківська",
         "region": "Калуський",
         "type": "village",
-        "coordinates": {
-            "N": "50 27 00",
-            "E": "30 31 25"
-        },
+        "coordinates": [48.59, 24.15],
         "neighbours": ["kalush"]
     }
 }

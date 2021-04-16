@@ -2,7 +2,7 @@
 
 #include <QObject>
 #include <QVector>
-#include <QPair>
+#include <QPointF>
 
 #include "locality_data_provider.h"
 #include "locality_type.h"
@@ -49,6 +49,10 @@ public:
     LocalityType getType() const;
     Q_SIGNAL void typeChanged();
 
+    Q_PROPERTY(QPointF coordinates READ getCoordinates NOTIFY coordinatesChanged)
+    QPointF getCoordinates() const;
+    Q_SIGNAL void coordinatesChanged();
+
     Q_PROPERTY(bool isFavorite READ isFavorite WRITE setFavorite NOTIFY isFavoriteChanged)
     bool isFavorite() const;
     void setFavorite(const bool isFavorite);
@@ -70,7 +74,7 @@ private:
     QString mOblast{}, mRegion{};
     unsigned int mPopulation{};
     float mArea{};
-    QPair<QString, QString> mCoordinates{};
+    QPointF mCoordinates{};
     QVector<QString> mNeighbours{};
     LocalityType mType = LocalityType::CITY;
     bool mIsFavorite{};

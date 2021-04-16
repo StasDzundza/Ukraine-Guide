@@ -62,6 +62,7 @@ Page {
                     anchors.rightMargin: 10
 
                     onClicked: {
+                        pageStack.push(Pages.mapViewPageUrl)
                         // TODO open menu or side bar with options
                     }
                 }

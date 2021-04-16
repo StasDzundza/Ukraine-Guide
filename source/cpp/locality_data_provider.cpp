@@ -29,7 +29,7 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     model.mEngName = localityObject.value("engName").toString("");
     model.mUkrName = localityObject.value("ukrName").toString("");
     model.mPopulation = localityObject.value("population").toInt(0);
-    model.mArea = localityObject.value("area").toInt(0);
+    model.mArea = localityObject.value("area").toDouble(0);
     model.mOblast = localityObject.value("oblast").toString("");
     model.mRegion = localityObject.value("region").toString("");
     const QString &localityType = localityObject.value("type").toString("city");
@@ -41,7 +41,7 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
         model.mType = LocalityType::VILLAGE;
     }
     const QJsonArray &coordinatesArray = localityObject.value("coordinates").toArray();
-    model.mCoordinates = {coordinatesArray.at(0).toString("0 0 0"), coordinatesArray.at(1).toString("0 0 0")};
+    model.mCoordinates = {coordinatesArray.at(0).toDouble(0), coordinatesArray.at(1).toDouble(0)};
 
     const QJsonArray &cityNeighboursArray = localityObject.value("neighbours").toArray();
     model.mNeighbours.clear();

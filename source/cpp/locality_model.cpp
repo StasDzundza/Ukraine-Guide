@@ -21,6 +21,8 @@ float LocalityModel::getArea() const { return mArea; }
 
 LocalityType LocalityModel::getType() const { return mType; }
 
+QPointF LocalityModel::getCoordinates() const { return mCoordinates; }
+
 bool LocalityModel::isFavorite() const { return mIsFavorite; }
 
 void LocalityModel::setFavorite(const bool isFavorite) { mIsFavorite = isFavorite; }

@@ -10,5 +10,7 @@
 	<file>icons/fill-star.svg</file>
 	<file>icons/star.svg</file>
 	<file>icons/menu.svg</file>
+	<file>icons/arrow-left-circle.svg</file>
+	<file>icons/arrow-right-circle.svg</file>
     </qresource>
 </RCC>
