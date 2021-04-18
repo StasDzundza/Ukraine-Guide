@@ -2,10 +2,12 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QSslSocket>
+#include <QtWebView>
 
 #include "application.h"
 #include "locality_type.h"
 #include "locality_list_model.h"
+#include "establishments_list_model.h"
 #include "locality_model.h"
 
 int main(int argc, char *argv[])
@@ -14,6 +16,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+    QtWebView::initialize();
+
     app.setOrganizationName("KNU University");
     app.setApplicationDisplayName("Ukraine Guide");
     app.setApplicationName("Ukraine Guide");
@@ -26,6 +30,7 @@ int main(int argc, char *argv[])
     LocalityType::declareQML();
     LocalityListModel::declareQML();
     LocalityModel::declareQML();
+    EstablishmentsListModel::declareQML();
 
     // make needed objects be in QML context as a context properties
     QQmlContext *context = engine.rootContext();

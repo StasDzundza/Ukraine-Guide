@@ -12,6 +12,9 @@ public:
 
     void fillLocalityModel(const QString &keyName, LocalityModel &model) const;
     QVector<LocalityListEntity> getLocalitiesList() const;
+    QVector<EstablishmentsListEntity> getEstablishmentsList(const QJsonArray &establishmentsArray) const;
+    QString getLocalityShortDescription(const QString &keyName) const;
+
 private:
     QJsonObject mLocalitiesObject;
 };

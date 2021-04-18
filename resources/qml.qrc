@@ -7,7 +7,7 @@
         <file>qml/pages/AboutPage.qml</file>
         <file>qml/pages/LocalityListPage.qml</file>
         <file>qml/pages/LocalityDescriptionPage.qml</file>
-	<file>qml/pages/MapViewPage.qml</file>
+        <file>qml/pages/MapViewPage.qml</file>
         <file>qml/pages/qmldir</file>
         <file>qml/settings/AppSettings.qml</file>
         <file>qml/settings/Palette.qml</file>
@@ -16,5 +16,6 @@
         <file>qml/components/ImageButton.qml</file>
         <file>qml/components/CustomButton.qml</file>
         <file>qml/components/qmldir</file>
+        <file>qml/components/TextButton.qml</file>
     </qresource>
 </RCC>

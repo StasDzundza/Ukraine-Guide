@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>app_data/localities.json</file>
+
+	<file>app_data/localities_data/kyiv/img1.jpg</file>
+	<file>app_data/localities_data/kyiv/img2.jpg</file>
     </qresource>
 </RCC>

@@ -1,4 +1,4 @@
-QT += quick core network svg
+QT += quick core network svg webview
 
 CONFIG += c++17
 
@@ -13,14 +13,16 @@ SOURCES += \
         source/cpp/application.cpp \
         source/cpp/locality_data_provider.cpp \
         source/cpp/locality_list_model.cpp \
+        source/cpp/establishments_list_model.cpp \
         source/cpp/locality_model.cpp \
         source/cpp/main.cpp
 
 HEADERS += \
     source/headers/application.h \
+    source/headers/list_entities.h \
     source/headers/locality_data_provider.h \
-    source/headers/locality_list_entity.h \
     source/headers/locality_list_model.h \
+    source/headers/establishments_list_model.h \
     source/headers/locality_model.h \
     source/headers/locality_type.h
 

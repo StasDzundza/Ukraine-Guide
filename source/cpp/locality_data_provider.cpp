@@ -25,6 +25,8 @@ LocalityDataProvider::LocalityDataProvider() {
 
 void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityModel &model) const {
     const QJsonObject &localityObject = mLocalitiesObject.value(keyName).toObject();
+    // main info
+    model.mShortInfo = getLocalityShortDescription(keyName);
     model.mKeyName = keyName;
     model.mEngName = localityObject.value("engName").toString("");
     model.mUkrName = localityObject.value("ukrName").toString("");
@@ -32,6 +34,9 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     model.mArea = localityObject.value("area").toDouble(0);
     model.mOblast = localityObject.value("oblast").toString("");
     model.mRegion = localityObject.value("region").toString("");
+    model.mMoreInfoUrl = localityObject.value("moreInfoUrl").toString("");
+
+    // type
     const QString &localityType = localityObject.value("type").toString("city");
     if (localityType == "city"){
         model.mType = LocalityType::CITY;
@@ -40,13 +45,26 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     } else {
         model.mType = LocalityType::VILLAGE;
     }
+
+    // coordinates
     const QJsonArray &coordinatesArray = localityObject.value("coordinates").toArray();
     model.mCoordinates = {coordinatesArray.at(0).toDouble(0), coordinatesArray.at(1).toDouble(0)};
 
+    // neighbours
     const QJsonArray &cityNeighboursArray = localityObject.value("neighbours").toArray();
     model.mNeighbours.clear();
     std::transform(cityNeighboursArray.cbegin(), cityNeighboursArray.cend(), std::back_inserter(model.mNeighbours), [](const QJsonValue &value) {
         return value.toString();
+    });
+
+    // establishments
+    model.mEstablishmentsListModel.resetList(getEstablishmentsList(localityObject.value("topEspablishments").toArray()));
+
+    // preview images
+    const QJsonArray &previewImagesArray = localityObject.value("images").toArray();
+    model.mPreviewImages.clear();
+    std::transform(previewImagesArray.cbegin(), previewImagesArray.cend(), std::back_inserter(model.mPreviewImages), [&keyName](const QJsonValue &value) {
+        return "qrc:/app_data/localities_data/" + keyName + "/" + value.toString();
     });
 }
 
@@ -59,4 +77,28 @@ QVector<LocalityListEntity> LocalityDataProvider::getLocalitiesList() const {
                                localityObject.value("type").toString()};
     }
     return localitiesList;
+}
+
+QVector<EstablishmentsListEntity> LocalityDataProvider::getEstablishmentsList(const QJsonArray &establishmentsArray) const {
+    QVector<EstablishmentsListEntity> establishmentsList;
+    std::transform(establishmentsArray.cbegin(), establishmentsArray.cend(), std::back_inserter(establishmentsList), [](const QJsonValue &value) -> EstablishmentsListEntity {
+        const QJsonObject &establishmentObject = value.toObject();
+        return {
+            establishmentObject.value("ukrName").toString(),
+            establishmentObject.value("engName").toString(),
+            establishmentObject.value("moreInfoUrk").toString()
+        };
+    });
+    return establishmentsList;
+}
+
+QString LocalityDataProvider::getLocalityShortDescription(const QString &keyName) const {
+    QFile file(":/app_data/localities_data/" + keyName + "/description.txt");
+    if(!file.open(QIODevice::ReadOnly)) {
+        return QStringLiteral("Помилка читання");
+    }
+    QTextStream in(&file);
+    QString result = in.readAll();
+    file.close();
+    return result;
 }

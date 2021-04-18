@@ -6,7 +6,8 @@
 
 #include "locality_data_provider.h"
 #include "locality_type.h"
-#include "locality_list_entity.h"
+#include "list_entities.h"
+#include "establishments_list_model.h"
 
 class LocalityModel : public QObject {
     Q_OBJECT
@@ -17,6 +18,10 @@ public:
     friend class LocalityDataProvider;
 
     // properties
+    Q_PROPERTY(QString shortInfo READ getShortInfo NOTIFY shortInfoChanged)
+    QString getShortInfo() const;
+    Q_SIGNAL void shortInfoChanged();
+
     Q_PROPERTY(QString keyName READ getKeyName NOTIFY keyNameChanged)
     QString getKeyName() const;
     Q_SIGNAL void keyNameChanged();
@@ -45,18 +50,30 @@ public:
     float getArea() const;
     Q_SIGNAL void areaChanged();
 
-    Q_PROPERTY(LocalityType type READ getType NOTIFY typeChanged)
-    LocalityType getType() const;
+    Q_PROPERTY(LocalityType::Type type READ getType NOTIFY typeChanged)
+    LocalityType::Type getType() const;
     Q_SIGNAL void typeChanged();
 
     Q_PROPERTY(QPointF coordinates READ getCoordinates NOTIFY coordinatesChanged)
     QPointF getCoordinates() const;
     Q_SIGNAL void coordinatesChanged();
 
+    Q_PROPERTY(QVector<QString> previewImages READ getPreviewImages NOTIFY previewImagesChanged)
+    QVector<QString> getPreviewImages() const;
+    Q_SIGNAL void previewImagesChanged();
+
     Q_PROPERTY(bool isFavorite READ isFavorite WRITE setFavorite NOTIFY isFavoriteChanged)
     bool isFavorite() const;
     void setFavorite(const bool isFavorite);
     Q_SIGNAL void isFavoriteChanged();
+
+    Q_PROPERTY(QString moreInfoUrl READ getMoreInfoUrl NOTIFY moreInfoUrlChanged)
+    QString getMoreInfoUrl() const;
+    Q_SIGNAL void moreInfoUrlChanged();
+
+    Q_PROPERTY(EstablishmentsListModel* establishments READ getEstablishments NOTIFY establishmentsChanged)
+    EstablishmentsListModel* getEstablishments();
+    Q_SIGNAL void establishmentsChanged();
 
     // qml methods
     Q_INVOKABLE void changeFavoriteStatus();
@@ -70,12 +87,16 @@ public:
     Q_SIGNAL void favoriteLocalityRemoved(const LocalityListEntity &locality);
 
 private:
+    QString mShortInfo{};
     QString mKeyName{}, mUkrName{}, mEngName{};
     QString mOblast{}, mRegion{};
     unsigned int mPopulation{};
     float mArea{};
     QPointF mCoordinates{};
     QVector<QString> mNeighbours{};
+    QVector<QString> mPreviewImages{};
     LocalityType mType = LocalityType::CITY;
     bool mIsFavorite{};
+    QString mMoreInfoUrl{};
+    EstablishmentsListModel mEstablishmentsListModel;
 };

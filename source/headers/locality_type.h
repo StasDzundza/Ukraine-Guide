@@ -27,6 +27,8 @@ public:
         return *this;
     }
 
+    Type getType() const { return mType; }
+
     static QString toString(const LocalityType &type) {
         switch (type.mType) {
             case Type::CITY:

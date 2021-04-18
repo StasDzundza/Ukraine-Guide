@@ -2,9 +2,13 @@
 
 #include "locality_model.h"
 
-LocalityModel::LocalityModel(QObject *parent) : QObject(parent){}
+LocalityModel::LocalityModel(QObject *parent) : QObject(parent){
+    QQmlEngine::setObjectOwnership(&mEstablishmentsListModel, QQmlEngine::ObjectOwnership::CppOwnership);
+}
 
 // properties
+QString LocalityModel::getShortInfo() const { return mShortInfo; }
+
 QString LocalityModel::getKeyName() const { return mKeyName; }
 
 QString LocalityModel::getUkrName() const { return mUkrName; }
@@ -19,13 +23,19 @@ int LocalityModel::getPopulation() const { return mPopulation; }
 
 float LocalityModel::getArea() const { return mArea; }
 
-LocalityType LocalityModel::getType() const { return mType; }
+LocalityType::Type LocalityModel::getType() const { return mType.getType(); }
 
 QPointF LocalityModel::getCoordinates() const { return mCoordinates; }
+
+QVector<QString> LocalityModel::getPreviewImages() const { return mPreviewImages; }
 
 bool LocalityModel::isFavorite() const { return mIsFavorite; }
 
 void LocalityModel::setFavorite(const bool isFavorite) { mIsFavorite = isFavorite; }
+
+QString LocalityModel::getMoreInfoUrl() const { return mMoreInfoUrl; }
+
+EstablishmentsListModel *LocalityModel::getEstablishments() { return &mEstablishmentsListModel; }
 
 //qml methods
 void LocalityModel::changeFavoriteStatus() {
@@ -44,13 +54,18 @@ void LocalityModel::declareQML() {
 }
 
 void LocalityModel::allPropertiesChanged() {
-    keyNameChanged();
-    ukrNameChanged();
-    engNameChanged();
-    oblastChanged();
-    regionChanged();
-    populationChanged();
-    areaChanged();
-    typeChanged();
-    isFavoriteChanged();
+    emit shortInfoChanged();
+    emit keyNameChanged();
+    emit ukrNameChanged();
+    emit engNameChanged();
+    emit oblastChanged();
+    emit regionChanged();
+    emit populationChanged();
+    emit areaChanged();
+    emit typeChanged();
+    emit isFavoriteChanged();
+    emit moreInfoUrlChanged();
+    emit coordinatesChanged();
+    emit establishmentsChanged();
+    emit previewImagesChanged();
 }

@@ -6,7 +6,21 @@
         "area": 839,
         "type": "city",
         "coordinates": [50.4480, 30.5231],
-        "neighbours": []
+        "neighbours": [],
+        "images": ["img1.jpg", "img2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%9A%D0%B8%D1%97%D0%B2",
+        "topEspablishments": [
+            {
+                "ukrName": "Мафія",
+                "engName": "Mafia",
+                "moreInfoUrl": "https://mafia.ua/ua/kiev"
+            },
+            {
+                "ukrName": "Домінос",
+                "engName": "Dominos",
+                "moreInfoUrl": "https://dominos.ua/uk/kyiv/"
+            }
+        ]
     },
     "ivano-frankivsk": {
         "engName": "Ivano-Frankivsk",
@@ -15,7 +29,10 @@
         "area": 100,
         "type": "city",
         "coordinates": [48.9219, 24.7121],
-        "neighbours": ["kalush"]
+        "neighbours": ["kalush"],
+        "images": [],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA",
+        "topEspablishments": []
     },
     "kalush": {
         "engName": "Kalush",
@@ -25,7 +42,10 @@
         "oblast": "Івано-Франківська",
         "type": "city",
         "coordinates": [49.0292, 24.3645],
-        "neighbours": ["ivano-frankivsk", "tuzhyliv1"]
+        "neighbours": ["ivano-frankivsk", "tuzhyliv1"],
+        "images": [],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BB%D1%83%D1%88",
+        "topEspablishments": []
     },
     "tuzhyliv1": {
         "engName": "Tuzhyliv",
@@ -36,6 +56,9 @@
         "region": "Калуський",
         "type": "village",
         "coordinates": [48.59, 24.15],
-        "neighbours": ["kalush"]
+        "neighbours": ["kalush"],
+        "images": [],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A2%D1%83%D0%B6%D0%B8%D0%BB%D1%96%D0%B2_(%D0%9A%D0%B0%D0%BB%D1%83%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD)",
+        "topEspablishments": []
     }
 }

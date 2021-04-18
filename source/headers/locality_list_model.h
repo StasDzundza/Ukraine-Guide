@@ -3,7 +3,7 @@
 #include <QAbstractListModel>
 #include <QVector>
 
-#include "locality_list_entity.h"
+#include "list_entities.h"
 
 class LocalityListModel : public QAbstractListModel {
     Q_OBJECT

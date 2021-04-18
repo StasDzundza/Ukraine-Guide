@@ -61,9 +61,62 @@ Page {
                     anchors.right: header.right
                     anchors.rightMargin: 10
 
+                    onClicked: drawer.open()
+                }
+            }
+
+        }
+
+        Drawer {
+            id: drawer
+            width: 0.7 * parent.width
+            height: parent.height
+
+            ColumnLayout {
+                anchors.centerIn: parent
+                spacing: 20
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Показати на мапі")
                     onClicked: {
                         pageStack.push(Pages.mapViewPageUrl)
-                        // TODO open menu or side bar with options
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Бронювання житла")
+                    onClicked: {
+                        Qt.openUrlExternally("https://www.booking.com/");
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Залізничні квитки")
+                    onClicked: {
+                        Qt.openUrlExternally("https://booking.uz.gov.ua/");
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Топ закладів")
+                    onClicked: {
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Детальна інформація")
+                    onClicked: {
+                        Qt.openUrlExternally(localityModel.moreInfoUrl);
+                        drawer.close()
                     }
                 }
             }
