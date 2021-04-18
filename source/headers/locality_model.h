@@ -42,8 +42,8 @@ public:
     QString getRegion() const;
     Q_SIGNAL void regionChanged();
 
-    Q_PROPERTY(int population READ getPopulation NOTIFY populationChanged)
-    int getPopulation() const;
+    Q_PROPERTY(unsigned int population READ getPopulation NOTIFY populationChanged)
+    unsigned int getPopulation() const;
     Q_SIGNAL void populationChanged();
 
     Q_PROPERTY(float area READ getArea NOTIFY areaChanged)
@@ -61,6 +61,10 @@ public:
     Q_PROPERTY(QVector<QString> previewImages READ getPreviewImages NOTIFY previewImagesChanged)
     QVector<QString> getPreviewImages() const;
     Q_SIGNAL void previewImagesChanged();
+
+    Q_PROPERTY(int numOfPreviewImages READ getNumOfPreviewImages NOTIFY numOfPreviewImagesChanged)
+    int getNumOfPreviewImages() const;
+    Q_SIGNAL void numOfPreviewImagesChanged();
 
     Q_PROPERTY(bool isFavorite READ isFavorite WRITE setFavorite NOTIFY isFavoriteChanged)
     bool isFavorite() const;

@@ -19,7 +19,7 @@ QString LocalityModel::getOblast() const { return mOblast; }
 
 QString LocalityModel::getRegion() const { return mRegion; }
 
-int LocalityModel::getPopulation() const { return mPopulation; }
+unsigned int LocalityModel::getPopulation() const { return mPopulation; }
 
 float LocalityModel::getArea() const { return mArea; }
 
@@ -28,6 +28,8 @@ LocalityType::Type LocalityModel::getType() const { return mType.getType(); }
 QPointF LocalityModel::getCoordinates() const { return mCoordinates; }
 
 QVector<QString> LocalityModel::getPreviewImages() const { return mPreviewImages; }
+
+int LocalityModel::getNumOfPreviewImages() const { return mPreviewImages.size(); }
 
 bool LocalityModel::isFavorite() const { return mIsFavorite; }
 
@@ -68,4 +70,5 @@ void LocalityModel::allPropertiesChanged() {
     emit coordinatesChanged();
     emit establishmentsChanged();
     emit previewImagesChanged();
+    emit numOfPreviewImagesChanged();
 }
