@@ -13,11 +13,13 @@
             {
                 "ukrName": "Мафія",
                 "engName": "Mafia",
+                "type": "Restaurant",
                 "moreInfoUrl": "https://mafia.ua/ua/kiev"
             },
             {
                 "ukrName": "Домінос",
                 "engName": "Dominos",
+                "type": "Pizzeria",
                 "moreInfoUrl": "https://dominos.ua/uk/kyiv/"
             }
         ]

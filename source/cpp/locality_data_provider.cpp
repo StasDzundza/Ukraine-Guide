@@ -86,7 +86,8 @@ QVector<EstablishmentsListEntity> LocalityDataProvider::getEstablishmentsList(co
         return {
             establishmentObject.value("ukrName").toString(),
             establishmentObject.value("engName").toString(),
-            establishmentObject.value("moreInfoUrk").toString()
+            establishmentObject.value("type").toString(),
+            establishmentObject.value("moreInfoUrl").toString()
         };
     });
     return establishmentsList;

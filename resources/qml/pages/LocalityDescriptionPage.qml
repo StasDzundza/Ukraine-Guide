@@ -107,6 +107,7 @@ Page {
                     Layout.alignment: Text.AlignHCenter
                     text: qsTr("Топ закладів")
                     onClicked: {
+                        pageStack.push(Pages.establishmentsListPage)
                         drawer.close()
                     }
                 }

@@ -7,6 +7,7 @@ QHash<int, QByteArray> EstablishmentsListModel::roleNames() const {
     return {
         {UkrNameRole, "ukrName"},
         {EngNameRole, "engName"},
+        {TypeRole, "type"},
         {MoreInfoUrlRole, "moreInfoUrl"}
     };
 }
@@ -24,6 +25,8 @@ QVariant EstablishmentsListModel::data(const QModelIndex &index, int role) const
                 return mEstablishmentsList.at(index.row()).mUkrName;
             case EngNameRole:
                 return mEstablishmentsList.at(index.row()).mEngName;
+            case TypeRole:
+                return mEstablishmentsList.at(index.row()).mType;
             case MoreInfoUrlRole:
                 return mEstablishmentsList.at(index.row()).mMoreInfoUrl;
             default:

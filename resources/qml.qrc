@@ -17,5 +17,6 @@
         <file>qml/components/CustomButton.qml</file>
         <file>qml/components/qmldir</file>
         <file>qml/components/TextButton.qml</file>
+        <file>qml/pages/EstablishmentsListPage.qml</file>
     </qresource>
 </RCC>

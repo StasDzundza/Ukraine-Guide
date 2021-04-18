@@ -8,7 +8,7 @@ struct LocalityListEntity {
 };
 
 struct EstablishmentsListEntity {
-    QString mUkrName, mEngName, mMoreInfoUrl;
+    QString mUkrName, mEngName, mType, mMoreInfoUrl;
 };
 
 Q_DECLARE_METATYPE(LocalityListEntity);

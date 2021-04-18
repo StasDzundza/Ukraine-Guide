@@ -8,7 +8,7 @@
 class EstablishmentsListModel : public QAbstractListModel {
     Q_OBJECT
    public:
-    enum EstablishmentRole { UkrNameRole = Qt::DisplayRole, EngNameRole, MoreInfoUrlRole };
+    enum EstablishmentRole { UkrNameRole = Qt::DisplayRole, EngNameRole, TypeRole, MoreInfoUrlRole };
     Q_ENUM(EstablishmentRole)
 
     explicit EstablishmentsListModel(QObject *parent = nullptr);
