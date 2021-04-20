@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QSslSocket>
 #include <QtWebView>
+#include <QQuickStyle>
 
 #include "application.h"
 #include "locality_type.h"
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     QtWebView::initialize();
+    QQuickStyle::setStyle("Material");
 
     app.setOrganizationName("KNU University");
     app.setApplicationDisplayName("Ukraine Guide");

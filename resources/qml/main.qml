@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.15
 
 import "./settings"
@@ -12,6 +13,11 @@ ApplicationWindow {
     height: AppSettings.screenHeight
     visible: true
     title: qsTr("Ukraine Guide")
+
+    Material.accent: Material.Lime
+    Material.background: Material.Lime
+    Material.foreground: Material.Cyan
+    Material.primary: Material.Cyan
 
     StackView {
         id: pageStack

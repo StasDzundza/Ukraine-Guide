@@ -1,4 +1,4 @@
-QT += quick core network svg webview
+QT += quick core network svg webview quickcontrols2
 
 CONFIG += c++17
 

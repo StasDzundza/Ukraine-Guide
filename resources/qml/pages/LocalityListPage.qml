@@ -88,7 +88,7 @@ Page {
                 Text {
                     text: qsTr("Сортувати за: ")
                     font.pointSize: AppSettings.blockTextFontSize
-                    color: Palette.blockTextColor
+                    color: Material.Cyan
                 }
 
                 ComboBox {
