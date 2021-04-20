@@ -34,6 +34,7 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     model.mArea = localityObject.value("area").toDouble(0);
     model.mOblast = localityObject.value("oblast").toString("");
     model.mRegion = localityObject.value("region").toString("");
+    model.mFoundationDate = localityObject.value("foundationDate").toString("");
     model.mMoreInfoUrl = localityObject.value("moreInfoUrl").toString("");
 
     // type
@@ -73,8 +74,13 @@ QVector<LocalityListEntity> LocalityDataProvider::getLocalitiesList() const {
     size_t i = 0;
     foreach(const QString& key, mLocalitiesObject.keys()) {
         const QJsonObject &localityObject = mLocalitiesObject.value(key).toObject();
-        localitiesList[i++] = {key, localityObject.value("ukrName").toString(), localityObject.value("engName").toString(),
-                               localityObject.value("type").toString()};
+        localitiesList[i++] = {key,
+                               localityObject.value("ukrName").toString(),
+                               localityObject.value("engName").toString(),
+                               localityObject.value("type").toString(),
+                               localityObject.value("area").toDouble(),
+                               localityObject.value("population").toInt()
+                              };
     }
     return localitiesList;
 }

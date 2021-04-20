@@ -4,11 +4,15 @@
 
 	<file>app_data/localities_data/kyiv/img1.jpg</file>
 	<file>app_data/localities_data/kyiv/img2.jpg</file>
+	<file>app_data/localities_data/kyiv/description.txt</file>
 
 	<file>app_data/localities_data/ivano-frankivsk/img1.jpg</file>
+	<file>app_data/localities_data/ivano-frankivsk/description.txt</file>
 
 	<file>app_data/localities_data/kalush/img1.jpg</file>
+	<file>app_data/localities_data/kalush/description.txt</file>
 
 	<file>app_data/localities_data/tuzhyliv1/img1.jpg</file>
+	<file>app_data/localities_data/tuzhyliv1/description.txt</file>
     </qresource>
 </RCC>

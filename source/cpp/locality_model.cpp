@@ -19,6 +19,8 @@ QString LocalityModel::getOblast() const { return mOblast; }
 
 QString LocalityModel::getRegion() const { return mRegion; }
 
+QString LocalityModel::getFoundationDate() const { return mFoundationDate; }
+
 unsigned int LocalityModel::getPopulation() const { return mPopulation; }
 
 float LocalityModel::getArea() const { return mArea; }

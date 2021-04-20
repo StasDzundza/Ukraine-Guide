@@ -92,7 +92,32 @@ void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel
     other->resetList(result);
 }
 
+void LocalityListModel::sortByName() {
+    sort([](const LocalityListEntity &first, const LocalityListEntity &second) {
+        return first.mEngName < second.mEngName;
+    });
+}
+
+void LocalityListModel::sortByArea() {
+    sort([](const LocalityListEntity &first, const LocalityListEntity &second) {
+        return first.mArea > second.mArea;
+    });
+}
+
+void LocalityListModel::sortByPopulation() {
+    sort([](const LocalityListEntity &first, const LocalityListEntity &second) {
+        return first.mPopulation > second.mPopulation;
+    });
+}
+
 void LocalityListModel::declareQML() {
     qmlRegisterType<LocalityListModel>("com.UkraineGuide.LocalityListModel", 1, 0, "LocalityListModel");
+}
+
+void LocalityListModel::sort(std::function<bool(const LocalityListEntity&, const LocalityListEntity&)> comparator) {
+    beginResetModel();
+    std::sort(mAllLocalitiesList.begin(), mAllLocalitiesList.end(), comparator);
+    endResetModel();
+    dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
 }
 

@@ -43,6 +43,7 @@ Page {
             Button {
                 text: qsTr("Населені пункти України")
                 Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: AppSettings.screenWidth * 0.66
 
                 onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.localityListModel})
             }
@@ -50,6 +51,7 @@ Page {
             Button {
                 text: qsTr("Улюблені місця")
                 Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: AppSettings.screenWidth * 0.66
 
                 onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.favoriteFocalityListModel})
             }

@@ -13,4 +13,6 @@ QtObject {
     readonly property string blockTextColor: "#000000"
     readonly property string listElementColor: "#d3f59d"
     readonly property string listElementBorderColor: "#000000"
+    readonly property string separatorColor: "#000000"
+    readonly property string descriptionHeaderColor: "#e8e889"
 }

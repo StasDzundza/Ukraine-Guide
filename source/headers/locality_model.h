@@ -42,6 +42,10 @@ public:
     QString getRegion() const;
     Q_SIGNAL void regionChanged();
 
+    Q_PROPERTY(QString foundationDate READ getFoundationDate NOTIFY foundationDateChanged)
+    QString getFoundationDate() const;
+    Q_SIGNAL void foundationDateChanged();
+
     Q_PROPERTY(unsigned int population READ getPopulation NOTIFY populationChanged)
     unsigned int getPopulation() const;
     Q_SIGNAL void populationChanged();
@@ -94,6 +98,7 @@ private:
     QString mShortInfo{};
     QString mKeyName{}, mUkrName{}, mEngName{};
     QString mOblast{}, mRegion{};
+    QString mFoundationDate{};
     unsigned int mPopulation{};
     float mArea{};
     QPointF mCoordinates{};

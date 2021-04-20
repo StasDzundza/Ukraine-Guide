@@ -18,5 +18,8 @@
         <file>qml/components/qmldir</file>
         <file>qml/components/TextButton.qml</file>
         <file>qml/pages/EstablishmentsListPage.qml</file>
+        <file>qml/components/Separator.qml</file>
+        <file>qml/components/HeaderText.qml</file>
+        <file>qml/components/DescriptionBlock.qml</file>
     </qresource>
 </RCC>

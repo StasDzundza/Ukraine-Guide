@@ -2,6 +2,7 @@
 
 #include <QAbstractListModel>
 #include <QVector>
+#include <functional>
 
 #include "list_entities.h"
 
@@ -27,9 +28,14 @@ class LocalityListModel : public QAbstractListModel {
     Q_INVOKABLE void clear();
     Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
     Q_INVOKABLE void fillSearchModel(const QString &prefix, LocalityListModel* other);
+    Q_INVOKABLE void sortByName();
+    Q_INVOKABLE void sortByArea();
+    Q_INVOKABLE void sortByPopulation();
 
     static void declareQML();
 
    private:
+    void sort(std::function<bool(const LocalityListEntity&, const LocalityListEntity&)> comparator);
+
     QVector<LocalityListEntity> mAllLocalitiesList;
 };

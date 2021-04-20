@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
+import com.UkraineGuide.LocalityType 1.0
+
 import "../settings"
 import "../components"
 
@@ -17,6 +19,9 @@ Page {
         color: Palette.backgroundColor
 
         ScrollView {
+            anchors.fill: parent
+            ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+
             ColumnLayout {
                 spacing: 0
 
@@ -74,8 +79,8 @@ Page {
                     source: localityModel.previewImages[curImageIndex]
                     Layout.preferredWidth: localityDescriptionPage.width
                     Layout.preferredHeight: AppSettings.screenWidth > AppSettings.screenHeight ? // landscape
-                                localityDescriptionPage.height - header.Layout.preferredHeight :
-                                localityDescriptionPage.height / 4
+                                                localityDescriptionPage.height - header.Layout.preferredHeight :
+                                                localityDescriptionPage.height / 4
 
                     ImageButton {
                         width: 30
@@ -96,66 +101,128 @@ Page {
                         }
                     }
                 }
-            }
 
-            Drawer {
-                id: drawer
-                width: 0.7 * parent.width
-                height: parent.height
+                DescriptionBlock {
+                    headerText: qsTr("Назва:")
+                    valueText: localityModel.ukrName + " / " + localityModel.engName
+                }
 
-                ColumnLayout {
-                    anchors.centerIn: parent
-                    spacing: 20
+                DescriptionBlock {
+                    headerText: qsTr("Дата заснування:")
+                    valueText: localityModel.foundationDate + " " + qsTr("рік.")
+                }
 
-                    TextButton {
-                        Layout.alignment: Text.AlignHCenter
-                        text: qsTr("Показати на мапі")
-                        onClicked: {
-                            pageStack.push(Pages.mapViewPageUrl)
-                            drawer.close()
-                        }
-                    }
+                DescriptionBlock {
+                    headerText: qsTr("Область:")
+                    valueText: localityModel.oblast
+                    visible: valueText !== ""
+                }
 
-                    TextButton {
-                        Layout.alignment: Text.AlignHCenter
-                        text: qsTr("Бронювання житла")
-                        onClicked: {
-                            Qt.openUrlExternally("https://www.booking.com/");
-                            drawer.close()
-                        }
-                    }
+                DescriptionBlock {
+                    headerText: qsTr("Район:")
+                    valueText: localityModel.region
+                    visible: valueText !== ""
+                }
 
-                    TextButton {
-                        Layout.alignment: Text.AlignHCenter
-                        text: qsTr("Залізничні квитки")
-                        onClicked: {
-                            Qt.openUrlExternally("https://booking.uz.gov.ua/");
-                            drawer.close()
-                        }
-                    }
-
-                    TextButton {
-                        Layout.alignment: Text.AlignHCenter
-                        text: qsTr("Топ закладів")
-                        onClicked: {
-                            pageStack.push(Pages.establishmentsListPage)
-                            drawer.close()
-                        }
-                    }
-
-                    TextButton {
-                        Layout.alignment: Text.AlignHCenter
-                        text: qsTr("Детальна інформація")
-                        onClicked: {
-                            Qt.openUrlExternally(localityModel.moreInfoUrl);
-                            drawer.close()
+                DescriptionBlock {
+                    headerText: qsTr("Тип:")
+                    valueText: {
+                        if (localityModel.type === LocalityType.CITY) {
+                            return qsTr("Місто.")
+                        } else if (localityModel.type === LocalityType.SETTLEMENT) {
+                            return qsTr("Село міського типу.")
+                        } else {
+                            return qsTr("Село.")
                         }
                     }
                 }
-            }
 
-            ScrollBar.vertical: ScrollBar {
-                policy: ScrollBar.AlwaysOn
+                DescriptionBlock {
+                    headerText: qsTr("Населення:")
+                    valueText: localityModel.population + " осіб."
+                }
+
+                DescriptionBlock {
+                    headerText: qsTr("Площа:")
+                    valueText: localityModel.area + " км²."
+                }
+
+                HeaderText {
+                    Layout.leftMargin: 10
+                    text: "Коротка інформація:"
+                }
+
+                Flickable {
+                    id: flickable
+                    Layout.preferredWidth: localityDescriptionPage.width
+                    Layout.preferredHeight: 300
+
+                    TextArea.flickable: TextArea {
+                        text: localityModel.shortInfo
+                        wrapMode: TextArea.Wrap
+                        enabled: false
+                    }
+
+                    ScrollBar.vertical: ScrollBar {
+                        policy: ScrollBar.AlwaysOn
+                    }
+                }
+            }
+        }
+
+        Drawer {
+            id: drawer
+            width: 0.7 * parent.width
+            height: parent.height
+
+            ColumnLayout {
+                anchors.centerIn: parent
+                spacing: 20
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Показати на мапі")
+                    onClicked: {
+                        pageStack.push(Pages.mapViewPageUrl)
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Бронювання житла")
+                    onClicked: {
+                        Qt.openUrlExternally("https://www.booking.com/");
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Залізничні квитки")
+                    onClicked: {
+                        Qt.openUrlExternally("https://booking.uz.gov.ua/");
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Топ закладів")
+                    onClicked: {
+                        pageStack.push(Pages.establishmentsListPage)
+                        drawer.close()
+                    }
+                }
+
+                TextButton {
+                    Layout.alignment: Text.AlignHCenter
+                    text: qsTr("Детальна інформація")
+                    onClicked: {
+                        Qt.openUrlExternally(localityModel.moreInfoUrl);
+                        drawer.close()
+                    }
+                }
             }
         }
     }

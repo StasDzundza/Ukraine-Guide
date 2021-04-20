@@ -81,6 +81,27 @@ Page {
                 }
             }
 
+            RowLayout {
+                Layout.leftMargin: 10
+                spacing: 10
+
+                Text {
+                    text: qsTr("Сортувати за: ")
+                    font.pointSize: AppSettings.blockTextFontSize
+                    color: Palette.blockTextColor
+                }
+
+                ComboBox {
+                    id: sortBy
+                    Layout.preferredWidth: localityListPage.width / 2
+                    model: [qsTr("алфавітом"), qsTr("площею"), qsTr("населенням")]
+
+                    onActivated: {
+                        localityList.sortModel(index)
+                    }
+                }
+            }
+
             Text {
                 Layout.alignment: Text.AlignHCenter
                 text: qsTr("Список порожній.")
@@ -103,6 +124,21 @@ Page {
                     clip: true
                     width: localityListPage.width
                     model: searchField.displayText === "" ? localityListModel : searchModel
+                    onModelChanged: sortModel(sortBy.currentIndex)
+
+                    function sortModel(index) {
+                        switch(index) {
+                            case 0:
+                                localityList.model.sortByName()
+                                break
+                            case 1:
+                                localityList.model.sortByArea()
+                                break
+                            case 2:
+                                localityList.model.sortByPopulation()
+                        }
+                    }
+
                     delegate: Rectangle {
                         width: localityListPage.width
                         height: 40
@@ -114,7 +150,7 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: ukrName
+                            text: ukrName + " / " + engName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }
@@ -124,7 +160,8 @@ Page {
                             anchors.right: parent.right
                             anchors.rightMargin: 20
                             source: "qrc:/icons/more-line.svg"
-                            onClicked: { // TODO open more menu
+                            onClicked: {
+                                // TODO open more menu
                             }
                         }
 
