@@ -14,6 +14,8 @@ QHash<int, QByteArray> LocalityListModel::roleNames() const {
 
 bool LocalityListModel::isEmpty() const { return mAllLocalitiesList.isEmpty(); }
 
+int LocalityListModel::getSize() const { return mAllLocalitiesList.size(); }
+
 LocalityListModel::LocalityListModel(QObject *parent) : QAbstractListModel(parent) {}
 
 int LocalityListModel::rowCount(const QModelIndex &) const { return mAllLocalitiesList.size(); }
@@ -42,6 +44,7 @@ void LocalityListModel::append(const LocalityListEntity &entity) {
     mAllLocalitiesList.insert(row, entity);
     endInsertRows();
     emit isEmptyChanged();
+    emit sizeChanged();
 }
 
 void LocalityListModel::remove(const LocalityListEntity &entity) {
@@ -53,6 +56,7 @@ void LocalityListModel::remove(const LocalityListEntity &entity) {
     mAllLocalitiesList.removeAt(row);
     endRemoveRows();
     emit isEmptyChanged();
+    emit sizeChanged();
 }
 
 bool LocalityListModel::contains(const QString &keyName) {
@@ -70,6 +74,7 @@ void LocalityListModel::clear() {
     mAllLocalitiesList.clear();
     endResetModel();
     emit isEmptyChanged();
+    emit sizeChanged();
 }
 
 void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities) {
@@ -79,6 +84,7 @@ void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities)
     endResetModel();
     dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
     emit isEmptyChanged();
+    emit sizeChanged();
 }
 
 void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel *other) {
@@ -108,6 +114,10 @@ void LocalityListModel::sortByPopulation() {
     sort([](const LocalityListEntity &first, const LocalityListEntity &second) {
         return first.mPopulation > second.mPopulation;
     });
+}
+
+LocalityListEntity &LocalityListModel::operator[](int index) {
+    return mAllLocalitiesList[index];
 }
 
 void LocalityListModel::declareQML() {

@@ -45,7 +45,10 @@ Page {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: AppSettings.screenWidth * 0.66
 
-                onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.localityListModel})
+                onClicked: {
+                    pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.localityListModel})
+                    pageStack.currentItem.sortByName()
+                }
             }
 
             Button {
@@ -53,7 +56,10 @@ Page {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: AppSettings.screenWidth * 0.66
 
-                onClicked: pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.favoriteFocalityListModel})
+                onClicked: {
+                    pageStack.push(Pages.localityListPageUrl, {"localityListModel": application.favoriteFocalityListModel})
+                    pageStack.currentItem.sortByName()
+                }
             }
         }
     }

@@ -14,6 +14,8 @@ Page {
     height: AppSettings.screenHeight
     title: qsTr("Locality list")
 
+    function sortByName() { localityList.model.sortByName(); }
+
     Rectangle {
         anchors.fill: parent
         color: Palette.backgroundColor
@@ -88,7 +90,7 @@ Page {
                 Text {
                     text: qsTr("Сортувати за: ")
                     font.pointSize: AppSettings.blockTextFontSize
-                    color: Material.Cyan
+                    color: Palette.blockTextColor
                 }
 
                 ComboBox {
@@ -129,13 +131,13 @@ Page {
                     function sortModel(index) {
                         switch(index) {
                             case 0:
-                                localityList.model.sortByName()
+                                model.sortByName()
                                 break
                             case 1:
-                                localityList.model.sortByArea()
+                                model.sortByArea()
                                 break
                             case 2:
-                                localityList.model.sortByPopulation()
+                                model.sortByPopulation()
                         }
                     }
 

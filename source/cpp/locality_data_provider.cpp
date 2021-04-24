@@ -10,8 +10,8 @@
 
 namespace  {
 static const QString LOCALITY_JSON_PATH = ":/app_data/localities.json";
-static const QString FAVORITE_LOCALITIES_JSON_PATH = ":/todo.json";
-static const QString ROUTES_JSON_PATH = ":/todo.json";
+static const QString FAVORITE_LOCALITIES_JSON_PATH = "favorite_localities.json";
+static const QString ROUTES_JSON_PATH = "routes.json";
 }
 
 LocalityDataProvider::LocalityDataProvider() {
@@ -64,15 +64,41 @@ void LocalityDataProvider::fillLocalityModel(const QString &keyName, LocalityMod
     // preview images
     const QJsonArray &previewImagesArray = localityObject.value("images").toArray();
     model.mPreviewImages.clear();
-    std::transform(previewImagesArray.cbegin(), previewImagesArray.cend(), std::back_inserter(model.mPreviewImages), [&keyName](const QJsonValue &value) {
+    std::transform(previewImagesArray.cbegin(), previewImagesArray.cend(), std::back_inserter(model.mPreviewImages),
+                   [&keyName](const QJsonValue &value) {
         return "qrc:/app_data/localities_data/" + keyName + "/" + value.toString();
     });
 }
 
 QVector<LocalityListEntity> LocalityDataProvider::getLocalitiesList() const {
-    QVector<LocalityListEntity> localitiesList(mLocalitiesObject.keys().size());
+    return getSpecificLocalitiesList(mLocalitiesObject.keys());
+}
+
+QVector<LocalityListEntity> LocalityDataProvider::getFavoritesList() const {
+    // read json file
+    QFile fin(FAVORITE_LOCALITIES_JSON_PATH);
+    if (fin.open(QIODevice::ReadOnly)) {
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(fin.readAll(), &parseError);
+        Q_ASSERT(parseError.error == QJsonParseError::NoError);
+
+        // parse json doc
+        QVariantList favoriteLocalities = jsonDoc.object().value(QStringLiteral("favorite_localities")).toArray().toVariantList();
+        QStringList favoriteLocalitiesKeys;
+        std::transform(favoriteLocalities.begin(), favoriteLocalities.end(), std::back_inserter(favoriteLocalitiesKeys),
+                       [](const QVariant &variant){
+            return variant.toString();
+        });
+        return getSpecificLocalitiesList(favoriteLocalitiesKeys);
+    } else {
+        return {};
+    }
+}
+
+QVector<LocalityListEntity> LocalityDataProvider::getSpecificLocalitiesList(const QStringList &keyNames) const{
+    QVector<LocalityListEntity> localitiesList(keyNames.size());
     size_t i = 0;
-    foreach(const QString& key, mLocalitiesObject.keys()) {
+    foreach(const QString& key, keyNames) {
         const QJsonObject &localityObject = mLocalitiesObject.value(key).toObject();
         localitiesList[i++] = {key,
                                localityObject.value("ukrName").toString(),
@@ -91,9 +117,9 @@ QVector<EstablishmentsListEntity> LocalityDataProvider::getEstablishmentsList(co
         const QJsonObject &establishmentObject = value.toObject();
         return {
             establishmentObject.value("ukrName").toString(),
-            establishmentObject.value("engName").toString(),
-            establishmentObject.value("type").toString(),
-            establishmentObject.value("moreInfoUrl").toString()
+                    establishmentObject.value("engName").toString(),
+                    establishmentObject.value("type").toString(),
+                    establishmentObject.value("moreInfoUrl").toString()
         };
     });
     return establishmentsList;
@@ -108,4 +134,21 @@ QString LocalityDataProvider::getLocalityShortDescription(const QString &keyName
     QString result = in.readAll();
     file.close();
     return result;
+}
+
+void LocalityDataProvider::saveFavoriteLocalities(LocalityListModel &favoriteLocalities) {
+    // create json doc
+    QJsonDocument favoritesJsonDoc;
+    QJsonObject rootObject;
+    QJsonArray favoriteLocalitiesArray;
+    for(int i = 0; i < favoriteLocalities.getSize(); i++) {
+        favoriteLocalitiesArray.append(favoriteLocalities[i].mKeyName);
+    }
+    rootObject.insert(QStringLiteral("favorite_localities"), favoriteLocalitiesArray);
+    favoritesJsonDoc.setObject(rootObject);
+
+    // write to file
+    QFile file(FAVORITE_LOCALITIES_JSON_PATH);
+    file.open(QIODevice::WriteOnly);
+    file.write(favoritesJsonDoc.toJson());
 }

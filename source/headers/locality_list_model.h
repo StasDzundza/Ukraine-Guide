@@ -22,6 +22,10 @@ class LocalityListModel : public QAbstractListModel {
     bool isEmpty() const;
     Q_SIGNAL void isEmptyChanged();
 
+    Q_PROPERTY(int size READ getSize NOTIFY sizeChanged)
+    int getSize() const;
+    Q_SIGNAL void sizeChanged();
+
     Q_INVOKABLE void append(const LocalityListEntity &entity);
     Q_INVOKABLE void remove(const LocalityListEntity &entity);
     Q_INVOKABLE bool contains(const QString &keyName);
@@ -31,6 +35,8 @@ class LocalityListModel : public QAbstractListModel {
     Q_INVOKABLE void sortByName();
     Q_INVOKABLE void sortByArea();
     Q_INVOKABLE void sortByPopulation();
+
+    LocalityListEntity& operator[](int index);
 
     static void declareQML();
 

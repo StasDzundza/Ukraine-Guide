@@ -46,8 +46,8 @@ public:
     QString getFoundationDate() const;
     Q_SIGNAL void foundationDateChanged();
 
-    Q_PROPERTY(unsigned int population READ getPopulation NOTIFY populationChanged)
-    unsigned int getPopulation() const;
+    Q_PROPERTY(int population READ getPopulation NOTIFY populationChanged)
+    int getPopulation() const;
     Q_SIGNAL void populationChanged();
 
     Q_PROPERTY(float area READ getArea NOTIFY areaChanged)
@@ -99,7 +99,7 @@ private:
     QString mKeyName{}, mUkrName{}, mEngName{};
     QString mOblast{}, mRegion{};
     QString mFoundationDate{};
-    unsigned int mPopulation{};
+    int mPopulation{};
     float mArea{};
     QPointF mCoordinates{};
     QVector<QString> mNeighbours{};

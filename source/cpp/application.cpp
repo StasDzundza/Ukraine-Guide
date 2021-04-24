@@ -10,9 +10,11 @@ Application::Application(QObject *parent): QObject(parent), mCurrentLocalityMode
     setupConnections();
 
     mAllLocalitiesListModel.resetList(mLocalityDataProvider.getLocalitiesList());
-    emit localityListModelChanged(&mAllLocalitiesListModel);
+    emit localityListModelChanged();
 
-    // TODO read favorite localities from file
+    mFavoriteLocalitiesListModel.resetList(mLocalityDataProvider.getFavoritesList());
+    emit favoriteLocalityListModelChanged();
+
     // TODO read routes from file
 }
 
@@ -33,7 +35,7 @@ void Application::loadLocalityModel(const QString &localityKeyName) {
    bool isFavorite = mFavoriteLocalitiesListModel.contains(mCurrentLocalityModel.getKeyName());
    mCurrentLocalityModel.setFavorite(isFavorite);
    mCurrentLocalityModel.allPropertiesChanged();
-   emit currentLocalityModelChanged(&mCurrentLocalityModel);
+   emit currentLocalityModelChanged();
 }
 
 void Application::onFavoriteLocalityAdded(const LocalityListEntity &locality) {
@@ -50,6 +52,6 @@ void Application::setupConnections() {
 }
 
 Application::~Application() {
-    // TODO write favorite localities to file
+    mLocalityDataProvider.saveFavoriteLocalities(mFavoriteLocalitiesListModel);
     // TODO write routes to file
 }

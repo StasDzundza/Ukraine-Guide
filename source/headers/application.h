@@ -14,15 +14,15 @@ public:
     // properties
     Q_PROPERTY(LocalityModel *currentLocalityModel READ getCurrentLocalityModel NOTIFY currentLocalityModelChanged)
     LocalityModel *getCurrentLocalityModel();
-    Q_SIGNAL void currentLocalityModelChanged(LocalityModel *);
+    Q_SIGNAL void currentLocalityModelChanged();
 
     Q_PROPERTY(LocalityListModel *localityListModel READ getLocalityListModel NOTIFY localityListModelChanged)
     LocalityListModel *getLocalityListModel();
-    Q_SIGNAL void localityListModelChanged(LocalityListModel *);
+    Q_SIGNAL void localityListModelChanged();
 
     Q_PROPERTY(LocalityListModel *favoriteFocalityListModel READ getFavoriteLocalityListModel NOTIFY favoriteLocalityListModelChanged)
     LocalityListModel *getFavoriteLocalityListModel();
-    Q_SIGNAL void favoriteLocalityListModelChanged(LocalityListModel *);
+    Q_SIGNAL void favoriteLocalityListModelChanged();
 
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
@@ -34,8 +34,8 @@ public:
 private:
     void setupConnections();
 
-    LocalityModel mCurrentLocalityModel;
     LocalityDataProvider mLocalityDataProvider;
     LocalityListModel mAllLocalitiesListModel;
     LocalityListModel mFavoriteLocalitiesListModel;
+    LocalityModel mCurrentLocalityModel;
 };

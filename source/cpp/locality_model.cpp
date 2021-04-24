@@ -21,7 +21,7 @@ QString LocalityModel::getRegion() const { return mRegion; }
 
 QString LocalityModel::getFoundationDate() const { return mFoundationDate; }
 
-unsigned int LocalityModel::getPopulation() const { return mPopulation; }
+int LocalityModel::getPopulation() const { return mPopulation; }
 
 float LocalityModel::getArea() const { return mArea; }
 
@@ -45,11 +45,11 @@ EstablishmentsListModel *LocalityModel::getEstablishments() { return &mEstablish
 void LocalityModel::changeFavoriteStatus() {
     mIsFavorite = !mIsFavorite;
     emit isFavoriteChanged();
-
+    LocalityListEntity locality{mKeyName, mUkrName, mEngName, LocalityType::toString(mType), mArea, mPopulation};
     if (mIsFavorite) {
-        emit favoriteLocalityAdded({mKeyName, mUkrName, mEngName, LocalityType::toString(mType)});
+        emit favoriteLocalityAdded(locality);
     } else {
-        emit favoriteLocalityRemoved({mKeyName, mUkrName, mEngName, LocalityType::toString(mType)});
+        emit favoriteLocalityRemoved(locality);
     }
 }
 
