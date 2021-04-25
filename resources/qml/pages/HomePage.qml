@@ -67,7 +67,7 @@ Page {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: AppSettings.screenWidth * 0.66
 
-                onClicked: pageStack.push(Pages.routesListPage)
+                onClicked: pageStack.push(Pages.routesListPageUrl)
             }
         }
     }

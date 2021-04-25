@@ -35,6 +35,8 @@ class LocalityListModel : public QAbstractListModel {
     Q_INVOKABLE void sortByName();
     Q_INVOKABLE void sortByArea();
     Q_INVOKABLE void sortByPopulation();
+    Q_INVOKABLE void moveUp(const int index);
+    Q_INVOKABLE void moveDown(const int index);
 
     LocalityListEntity& operator[](int index);
 

@@ -117,6 +117,32 @@ void LocalityListModel::sortByPopulation() {
     });
 }
 
+void LocalityListModel::moveUp(const int idx) {
+    if (mAllLocalitiesList.size() > 1) {
+        beginResetModel();
+        if (idx > 0) {
+            std::swap(mAllLocalitiesList[idx], mAllLocalitiesList[idx-1]);
+        } else {
+            std::swap(mAllLocalitiesList[idx], mAllLocalitiesList[mAllLocalitiesList.size() - 1]);
+        }
+        endResetModel();
+        dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+    }
+}
+
+void LocalityListModel::moveDown(const int idx) {
+    if (mAllLocalitiesList.size() > 1) {
+        beginResetModel();
+        if (idx < mAllLocalitiesList.size() - 1) {
+            std::swap(mAllLocalitiesList[idx], mAllLocalitiesList[idx+1]);
+        } else {
+            std::swap(mAllLocalitiesList[idx], mAllLocalitiesList[0]);
+        }
+        endResetModel();
+        dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+    }
+}
+
 LocalityListEntity &LocalityListModel::operator[](int index) {
     return mAllLocalitiesList[index];
 }

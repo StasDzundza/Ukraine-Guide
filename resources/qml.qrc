@@ -22,5 +22,6 @@
         <file>qml/components/HeaderText.qml</file>
         <file>qml/components/DescriptionBlock.qml</file>
         <file>qml/pages/RouteListPage.qml</file>
+        <file>qml/pages/RoutePage.qml</file>
     </qresource>
 </RCC>

@@ -75,7 +75,10 @@ Page {
                             anchors.right: parent.right
                             anchors.rightMargin: 20
                             source: "qrc:/icons/trash.svg"
-                            onClicked: application.loadCurrentRoute(routeName)
+                            onClicked: {
+                                application.loadCurrentRoute(routeName)
+                                pageStack.push(Pages.routePageUrl, {"routeName": routeName})
+                            }
                         }
 
                         MouseArea {

@@ -15,5 +15,7 @@
 	<file>icons/repeat.png</file>
 	<file>icons/create.svg</file>
 	<file>icons/trash.svg</file>
+	<file>icons/arrow-circle-up.svg</file>
+	<file>icons/arrow-circle-down.svg</file>
     </qresource>
 </RCC>
