@@ -15,7 +15,8 @@ SOURCES += \
         source/cpp/locality_list_model.cpp \
         source/cpp/establishments_list_model.cpp \
         source/cpp/locality_model.cpp \
-        source/cpp/main.cpp
+        source/cpp/main.cpp \
+        source/cpp/routes_list_model.cpp
 
 HEADERS += \
     source/headers/application.h \
@@ -24,7 +25,8 @@ HEADERS += \
     source/headers/locality_list_model.h \
     source/headers/establishments_list_model.h \
     source/headers/locality_model.h \
-    source/headers/locality_type.h
+    source/headers/locality_type.h \
+    source/headers/routes_list_model.h
 
 INCLUDEPATH += $$PWD/source/headers
 

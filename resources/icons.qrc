@@ -13,5 +13,7 @@
 	<file>icons/arrow-left-circle.svg</file>
 	<file>icons/arrow-right-circle.svg</file>
 	<file>icons/repeat.png</file>
+	<file>icons/create.svg</file>
+	<file>icons/trash.svg</file>
     </qresource>
 </RCC>

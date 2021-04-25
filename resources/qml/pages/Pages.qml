@@ -9,4 +9,5 @@ QtObject {
     readonly property string localityDescriptionPageUrl: "qrc:/qml/pages/LocalityDescriptionPage.qml"
     readonly property string mapViewPageUrl: "qrc:/qml/pages/MapViewPage.qml"
     readonly property string establishmentsListPage: "qrc:/qml/pages/EstablishmentsListPage.qml"
+    readonly property string routesListPage: "qrc:/qml/pages/RouteListPage.qml"
 }

@@ -61,6 +61,14 @@ Page {
                     pageStack.currentItem.sortByName()
                 }
             }
+
+            Button {
+                text: qsTr("Мої маршрути")
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: AppSettings.screenWidth * 0.66
+
+                onClicked: pageStack.push(Pages.routesListPage)
+            }
         }
     }
 }

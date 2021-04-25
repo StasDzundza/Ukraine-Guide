@@ -15,7 +15,8 @@ Application::Application(QObject *parent): QObject(parent), mCurrentLocalityMode
     mFavoriteLocalitiesListModel.resetList(mLocalityDataProvider.getFavoritesList());
     emit favoriteLocalityListModelChanged();
 
-    // TODO read routes from file
+    mRoutesListModel.resetList(mLocalityDataProvider.getRoutesList());
+    emit routesListModelChanged();
 }
 
 LocalityModel *Application::getCurrentLocalityModel() {
@@ -30,12 +31,25 @@ LocalityListModel *Application::getFavoriteLocalityListModel() {
     return &mFavoriteLocalitiesListModel;
 }
 
+LocalityListModel *Application::getCurrentRouteListModel() {
+    return &mCurrentRouteListModel;
+}
+
+RoutesListModel *Application::getRoutesListModel() {
+    return &mRoutesListModel;
+}
+
 void Application::loadLocalityModel(const QString &localityKeyName) {
    mLocalityDataProvider.fillLocalityModel(localityKeyName, mCurrentLocalityModel);
    bool isFavorite = mFavoriteLocalitiesListModel.contains(mCurrentLocalityModel.getKeyName());
    mCurrentLocalityModel.setFavorite(isFavorite);
    mCurrentLocalityModel.allPropertiesChanged();
    emit currentLocalityModelChanged();
+}
+
+void Application::loadCurrentRoute(const QString &routeName) {
+    mCurrentRouteListModel.resetList(mLocalityDataProvider.getLocalitiesFromRoute(routeName));
+    emit currentRouteListModelChanged();
 }
 
 void Application::onFavoriteLocalityAdded(const LocalityListEntity &locality) {

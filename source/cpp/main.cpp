@@ -6,10 +6,6 @@
 #include <QQuickStyle>
 
 #include "application.h"
-#include "locality_type.h"
-#include "locality_list_model.h"
-#include "establishments_list_model.h"
-#include "locality_model.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +29,7 @@ int main(int argc, char *argv[])
     LocalityListModel::declareQML();
     LocalityModel::declareQML();
     EstablishmentsListModel::declareQML();
+    RoutesListModel::declareQML();
 
     // make needed objects be in QML context as a context properties
     QQmlContext *context = engine.rootContext();

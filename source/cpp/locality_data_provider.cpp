@@ -99,14 +99,7 @@ QVector<LocalityListEntity> LocalityDataProvider::getSpecificLocalitiesList(cons
     QVector<LocalityListEntity> localitiesList(keyNames.size());
     size_t i = 0;
     foreach(const QString& key, keyNames) {
-        const QJsonObject &localityObject = mLocalitiesObject.value(key).toObject();
-        localitiesList[i++] = {key,
-                               localityObject.value("ukrName").toString(),
-                               localityObject.value("engName").toString(),
-                               localityObject.value("type").toString(),
-                               localityObject.value("area").toDouble(),
-                               localityObject.value("population").toInt()
-                              };
+        localitiesList[i++] = createLocalityListEntity(key);
     }
     return localitiesList;
 }
@@ -134,6 +127,64 @@ QString LocalityDataProvider::getLocalityShortDescription(const QString &keyName
     QString result = in.readAll();
     file.close();
     return result;
+}
+
+QStringList LocalityDataProvider::getRoutesList() const {
+    // read json file
+    QFile fin(ROUTES_JSON_PATH);
+    if (fin.open(QIODevice::ReadOnly)) {
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(fin.readAll(), &parseError);
+        Q_ASSERT(parseError.error == QJsonParseError::NoError);
+
+        // parse json doc
+        QVariantList routes = jsonDoc.object().value(QStringLiteral("routes")).toArray().toVariantList();
+        QStringList routeNames;
+        std::transform(routes.begin(), routes.end(), std::back_inserter(routeNames),
+                       [](const QVariant &variant){
+            return variant.toString();
+        });
+        return routeNames;
+    } else {
+        return {};
+    }
+}
+
+QVector<LocalityListEntity> LocalityDataProvider::getLocalitiesFromRoute(QString routeName) {
+    routeName.replace(' ', '_');
+    QFile fin(ROUTES_JSON_PATH);
+    if (fin.open(QIODevice::ReadOnly)) {
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(fin.readAll(), &parseError);
+        Q_ASSERT(parseError.error == QJsonParseError::NoError);
+
+        // parse json doc
+        QVariantList localities = jsonDoc.object().value(routeName + QStringLiteral(".json")).toArray().toVariantList();
+        QStringList localityKeyNames;
+        std::transform(localities.begin(), localities.end(), std::back_inserter(localityKeyNames),
+                       [](const QVariant &variant){
+            return variant.toString();
+        });
+        QVector<LocalityListEntity> result(localityKeyNames.size());
+        size_t i = 0;
+        for (const QString &keyName: localityKeyNames) {
+            result[i++] = createLocalityListEntity(keyName);
+        }
+        return result;
+    } else {
+        return {};
+    }
+}
+
+LocalityListEntity LocalityDataProvider::createLocalityListEntity(const QString &keyName) const{
+    const QJsonObject &localityObject = mLocalitiesObject.value(keyName).toObject();
+    return {keyName,
+                localityObject.value("ukrName").toString(),
+                localityObject.value("engName").toString(),
+                localityObject.value("type").toString(),
+                localityObject.value("area").toDouble(),
+                localityObject.value("population").toInt()
+    };
 }
 
 void LocalityDataProvider::saveFavoriteLocalities(LocalityListModel &favoriteLocalities) {

@@ -4,6 +4,7 @@
 
 #include "locality_data_provider.h"
 #include "locality_model.h"
+#include "routes_list_model.h"
 
 class Application : public QObject {
     Q_OBJECT
@@ -24,8 +25,17 @@ public:
     LocalityListModel *getFavoriteLocalityListModel();
     Q_SIGNAL void favoriteLocalityListModelChanged();
 
+    Q_PROPERTY(LocalityListModel *currentRouteListModel READ getCurrentRouteListModel NOTIFY currentRouteListModelChanged)
+    LocalityListModel *getCurrentRouteListModel();
+    Q_SIGNAL void currentRouteListModelChanged();
+
+    Q_PROPERTY(RoutesListModel *routesListModel READ getRoutesListModel NOTIFY routesListModelChanged)
+    RoutesListModel *getRoutesListModel();
+    Q_SIGNAL void routesListModelChanged();
+
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
+    Q_INVOKABLE void loadCurrentRoute(const QString &routeName);
 
     // slots
     Q_SLOT void onFavoriteLocalityAdded(const LocalityListEntity &locality);
@@ -37,5 +47,7 @@ private:
     LocalityDataProvider mLocalityDataProvider;
     LocalityListModel mAllLocalitiesListModel;
     LocalityListModel mFavoriteLocalitiesListModel;
+    LocalityListModel mCurrentRouteListModel;
     LocalityModel mCurrentLocalityModel;
+    RoutesListModel mRoutesListModel;
 };

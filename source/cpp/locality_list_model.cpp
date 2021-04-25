@@ -21,7 +21,7 @@ LocalityListModel::LocalityListModel(QObject *parent) : QAbstractListModel(paren
 int LocalityListModel::rowCount(const QModelIndex &) const { return mAllLocalitiesList.size(); }
 
 QVariant LocalityListModel::data(const QModelIndex &index, int role) const {
-    if (index.row() < rowCount())
+    if (index.row() < rowCount()) {
         switch (role) {
             case KeyNameRole:
                 return mAllLocalitiesList.at(index.row()).mKeyName;
@@ -34,6 +34,7 @@ QVariant LocalityListModel::data(const QModelIndex &index, int role) const {
             default:
                 return QVariant();
         }
+    }
     return QVariant();
 }
 

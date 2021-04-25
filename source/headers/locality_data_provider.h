@@ -16,12 +16,15 @@ public:
     QVector<LocalityListEntity> getFavoritesList() const;
     QVector<EstablishmentsListEntity> getEstablishmentsList(const QJsonArray &establishmentsArray) const;
     QString getLocalityShortDescription(const QString &keyName) const;
+    QStringList getRoutesList() const;
+    QVector<LocalityListEntity> getLocalitiesFromRoute(QString routeName);
 
     // write methods
     void saveFavoriteLocalities(LocalityListModel& favoriteLocalities);
 
 private:
     QVector<LocalityListEntity> getSpecificLocalitiesList(const QStringList &keyNames) const;
+    LocalityListEntity createLocalityListEntity(const QString &keyName) const;
 
     QJsonObject mLocalitiesObject;
 };

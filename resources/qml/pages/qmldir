@@ -5,4 +5,5 @@ LocalityListPage 1.0 LocalityListPage.qml
 LocalityDescriptionPage 1.0 LocalityDescriptionPage.qml
 MapViewPage 1.0 MapViewPage.qml
 EstablishmentsListPage 1.0 EstablishmentsListPage.qml
+RouteListPage 1.0 RouteListPage.qml
 singleton Pages 1.0 Pages.qml
