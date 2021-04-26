@@ -23,5 +23,7 @@
         <file>qml/components/DescriptionBlock.qml</file>
         <file>qml/pages/RouteListPage.qml</file>
         <file>qml/pages/RoutePage.qml</file>
+        <file>qml/pages/CreatingRoutePage.qml</file>
+        <file>qml/components/Placeholder.qml</file>
     </qresource>
 </RCC>

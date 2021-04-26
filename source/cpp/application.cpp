@@ -2,10 +2,17 @@
 
 #include <application.h>
 
-Application::Application(QObject *parent): QObject(parent), mCurrentLocalityModel(this) {
+Application::Application(QObject *parent): QObject(parent),
+        mAllLocalitiesListModel(this),
+        mFavoriteLocalitiesListModel(this),
+        mCurrentRouteListModel(this),
+        mCurrentLocalityModel(this),
+        mRoutesListModel(this) {
     QQmlEngine::setObjectOwnership(&mCurrentLocalityModel, QQmlEngine::ObjectOwnership::CppOwnership);
     QQmlEngine::setObjectOwnership(&mAllLocalitiesListModel, QQmlEngine::ObjectOwnership::CppOwnership);
     QQmlEngine::setObjectOwnership(&mFavoriteLocalitiesListModel, QQmlEngine::ObjectOwnership::CppOwnership);
+    QQmlEngine::setObjectOwnership(&mRoutesListModel, QQmlEngine::ObjectOwnership::CppOwnership);
+    QQmlEngine::setObjectOwnership(&mCurrentRouteListModel, QQmlEngine::ObjectOwnership::CppOwnership);
 
     setupConnections();
 
@@ -52,6 +59,12 @@ void Application::loadCurrentRoute(const QString &routeName) {
     emit currentRouteListModelChanged();
 }
 
+void Application::createRoute(const QString &routeName, const QStringList &localities) {
+    mLocalityDataProvider.saveRoute(routeName, localities);
+    mRoutesListModel.append(routeName);
+    routesListModelChanged();
+}
+
 void Application::onFavoriteLocalityAdded(const LocalityListEntity &locality) {
     mFavoriteLocalitiesListModel.append(locality);
 }
@@ -66,6 +79,6 @@ void Application::setupConnections() {
 }
 
 Application::~Application() {
-    mLocalityDataProvider.saveFavoriteLocalities(mFavoriteLocalitiesListModel);
-    // TODO write routes to file
+    mLocalityDataProvider.saveFavoriteLocalities(mFavoriteLocalitiesListModel.getKeyNames());
+    mLocalityDataProvider.saveRoutesList(mRoutesListModel.getRoutesList());
 }

@@ -11,4 +11,5 @@ QtObject {
     readonly property string establishmentsListPage: "qrc:/qml/pages/EstablishmentsListPage.qml"
     readonly property string routesListPageUrl: "qrc:/qml/pages/RouteListPage.qml"
     readonly property string routePageUrl: "qrc:/qml/pages/RoutePage.qml"
+    readonly property string creatingRoutePageUrl: "qrc:/qml/pages/CreatingRoutePage.qml"
 }

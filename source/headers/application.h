@@ -36,6 +36,7 @@ public:
     // qml invokable methods
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
     Q_INVOKABLE void loadCurrentRoute(const QString &routeName);
+    Q_INVOKABLE void createRoute(const QString &routeName, const QStringList &localities);
 
     // slots
     Q_SLOT void onFavoriteLocalityAdded(const LocalityListEntity &locality);

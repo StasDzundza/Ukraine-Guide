@@ -27,9 +27,7 @@ Page {
                     anchors.right: parent.right
                     anchors.rightMargin: 20
                     source: "qrc:/icons/create.svg"
-                    onClicked: {
-                        // TODO open create route page
-                    }
+                    onClicked: pageStack.push(Pages.creatingRoutePageUrl)
                 }
 
                 onBackClicked: pageStack.pop()
@@ -64,7 +62,7 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: name
+                            text: routeName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }
@@ -76,8 +74,7 @@ Page {
                             anchors.rightMargin: 20
                             source: "qrc:/icons/trash.svg"
                             onClicked: {
-                                application.loadCurrentRoute(routeName)
-                                pageStack.push(Pages.routePageUrl, {"routeName": routeName})
+                                // TODO remove route confirmation
                             }
                         }
 
@@ -85,7 +82,8 @@ Page {
                             anchors.fill: parent
 
                             onClicked: {
-                                // TODO open selected route page
+                                application.loadCurrentRoute(routeName)
+                                pageStack.push(Pages.routePageUrl, {"routeName": routeName})
                             }
                         }
                     }

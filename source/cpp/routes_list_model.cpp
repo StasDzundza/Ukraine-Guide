@@ -9,6 +9,8 @@ QHash<int, QByteArray> RoutesListModel::roleNames() const {
     };
 }
 
+QStringList RoutesListModel::getRoutesList() const { return mAllRoutes; }
+
 bool RoutesListModel::isEmpty() const { return mAllRoutes.isEmpty(); }
 
 int RoutesListModel::getSize() const { return mAllRoutes.size(); }
@@ -48,13 +50,7 @@ void RoutesListModel::remove(int row) {
 }
 
 bool RoutesListModel::contains(const QString &routeName) {
-    if (mAllRoutes.isEmpty()) {
-        return false;
-    }
-    auto it = std::find_if(mAllRoutes.cbegin(), mAllRoutes.cend(), [&routeName](const QString &name){
-        return routeName == name;
-    });
-    return it != mAllRoutes.end();
+    return mAllRoutes.contains(routeName, Qt::CaseInsensitive);
 }
 
 void RoutesListModel::clear() {

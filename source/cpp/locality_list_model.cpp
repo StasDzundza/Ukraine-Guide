@@ -12,6 +12,14 @@ QHash<int, QByteArray> LocalityListModel::roleNames() const {
     };
 }
 
+QStringList LocalityListModel::getKeyNames() const {
+    QStringList keyNames;
+    std::transform(mAllLocalitiesList.cbegin(), mAllLocalitiesList.cend(), std::back_inserter(keyNames), [](const LocalityListEntity &entity) {
+        return entity.mKeyName;
+    });
+    return keyNames;
+}
+
 bool LocalityListModel::isEmpty() const { return mAllLocalitiesList.isEmpty(); }
 
 int LocalityListModel::getSize() const { return mAllLocalitiesList.size(); }
@@ -141,10 +149,6 @@ void LocalityListModel::moveDown(const int idx) {
         endResetModel();
         dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
     }
-}
-
-LocalityListEntity &LocalityListModel::operator[](int index) {
-    return mAllLocalitiesList[index];
 }
 
 void LocalityListModel::declareQML() {

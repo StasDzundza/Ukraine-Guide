@@ -11,6 +11,7 @@ QtObject {
     readonly property int titleFontSize: 18
     readonly property int buttonTextFontSize: 15
     readonly property int descriptionHeaderFontSize: 20
+    readonly property int placeholderFontSize: 10
 
     // component sizes
     readonly property int headerHeight: 50

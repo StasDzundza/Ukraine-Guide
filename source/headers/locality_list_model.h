@@ -17,6 +17,7 @@ class LocalityListModel : public QAbstractListModel {
     int rowCount(const QModelIndex & = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
+    QStringList getKeyNames() const;
 
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
     bool isEmpty() const;
@@ -37,8 +38,6 @@ class LocalityListModel : public QAbstractListModel {
     Q_INVOKABLE void sortByPopulation();
     Q_INVOKABLE void moveUp(const int index);
     Q_INVOKABLE void moveDown(const int index);
-
-    LocalityListEntity& operator[](int index);
 
     static void declareQML();
 

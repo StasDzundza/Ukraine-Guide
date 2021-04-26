@@ -29,7 +29,7 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: 20
-                    source: editMode ? "qrc:/icons/done.svg" : "qrc:/icons/edit.svg"
+                    source: editMode ? "qrc:/icons/save.svg" : "qrc:/icons/edit.svg"
                     onClicked: editMode = !editMode
                 }
 
@@ -37,7 +37,7 @@ Page {
             }
 
             Button {
-                text: qsTr("Додати нові місця")
+                text: qsTr("Додати зупинку")
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: routePage.width
 
@@ -75,7 +75,7 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: index + ". " + ukrName + " / " + engName
+                            text: (index + 1) + ". " + ukrName + " / " + engName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }

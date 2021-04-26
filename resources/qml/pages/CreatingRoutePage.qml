@@ -6,15 +6,14 @@ import "../settings"
 import "../components"
 
 import com.UkraineGuide.LocalityListModel 1.0
+import com.UkraineGuide.SelectedLocalitiesModel 1.0
 
 Page {
-    id: localityListPage
-    property var localityListModel
+    id: creatingRoutePage
+    property var localityListModel: application.localityListModel
     width: AppSettings.screenWidth
     height: AppSettings.screenHeight
-    title: qsTr("Locality list")
-
-    function sortByName() { localityList.model.sortByName(); }
+    title: qsTr("Creating route")
 
     Rectangle {
         anchors.fill: parent
@@ -22,11 +21,33 @@ Page {
 
         ColumnLayout {
             Header {
-                Layout.preferredWidth: localityListPage.width
+                Layout.preferredWidth: creatingRoutePage.width
                 Layout.preferredHeight: AppSettings.headerHeight
                 title: qsTr("Населені пункти України")
-
                 onBackClicked: pageStack.pop()
+
+                ImageButton {
+                    sourceSize: "30x30"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: 20
+                    source: "qrc:/icons/save.svg"
+
+                    ToolTip { id: toolTip }
+
+                    onClicked: {
+                        if (routeName.displayText !== "") {
+                            if (application.routesListModel.contains(routeName.displayText)) {
+                                toolTip.show("Маршрут з таким іменем вже існує!", 1000)
+                            } else {
+                                application.createRoute(routeName.displayText, selectedLocalities.selectedLocalities)
+                                pageStack.pop()
+                            }
+                        } else {
+                            toolTip.show("Введіть назву маршруту!", 1000)
+                        }
+                    }
+                }
             }
 
             Switch {
@@ -37,8 +58,35 @@ Page {
             }
 
             Rectangle {
+                id: routeNameArea
+                Layout.preferredWidth: creatingRoutePage.width - 20
+                Layout.preferredHeight: 40
+                Layout.alignment: Qt.AlignHCenter
+                color: "transparent"
+                border.color: Palette.borderColor
+                border.width: 1
+                radius: 10
+
+                TextInput {
+                    id: routeName
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    color: Palette.blockTextColor
+                    font.pointSize: AppSettings.blockTextFontSize
+                    wrapMode: TextInput.Wrap
+                    maximumLength: 20
+
+                    Placeholder {
+                        text: "Назва маршруту..."
+                        anchors.centerIn: parent
+                    }
+                }
+            }
+
+            Rectangle {
                 id: searchArea
-                Layout.preferredWidth: localityListPage.width - 20
+                Layout.preferredWidth: creatingRoutePage.width - 20
                 Layout.preferredHeight: 40
                 Layout.alignment: Qt.AlignHCenter
                 color: "transparent"
@@ -63,7 +111,7 @@ Page {
                     TextInput {
                         id: searchField
                         anchors.verticalCenter: parent.verticalCenter
-                        width: localityListPage.width - searchImage.width - clearInput.width - 50
+                        width: creatingRoutePage.width - searchImage.width - clearInput.width - 50
                         color: Palette.blockTextColor
                         font.pointSize: AppSettings.blockTextFontSize
                         wrapMode: TextInput.Wrap
@@ -83,30 +131,9 @@ Page {
                 }
             }
 
-            RowLayout {
-                Layout.leftMargin: 10
-                spacing: 10
-
-                Text {
-                    text: qsTr("Сортувати за: ")
-                    font.pointSize: AppSettings.blockTextFontSize
-                    color: Palette.blockTextColor
-                }
-
-                ComboBox {
-                    id: sortBy
-                    Layout.preferredWidth: localityListPage.width / 2
-                    model: [qsTr("алфавітом"), qsTr("площею"), qsTr("населенням")]
-
-                    onActivated: {
-                        localityList.sortModel(index)
-                    }
-                }
-            }
-
             Text {
                 Layout.alignment: Text.AlignHCenter
-                text: qsTr("Список порожній.")
+                text: qsTr("Нічого не знайдено.")
                 color: Palette.headerTextColor
                 font.pointSize: AppSettings.titleFontSize
                 font.bold: true
@@ -117,32 +144,22 @@ Page {
                 id: searchModel
             }
 
+            SelectedLocalitiesModel {
+                id: selectedLocalities
+            }
+
             ScrollView {
-                Layout.preferredWidth: localityListPage.width
-                Layout.preferredHeight: localityListPage.height - 60
+                Layout.preferredWidth: creatingRoutePage.width
+                Layout.preferredHeight: creatingRoutePage.height - 60
 
                 ListView {
                     id: localityList
                     clip: true
-                    width: localityListPage.width
+                    width: creatingRoutePage.width
                     model: searchField.displayText === "" ? localityListModel : searchModel
-                    onModelChanged: sortModel(sortBy.currentIndex)
-
-                    function sortModel(index) {
-                        switch(index) {
-                            case 0:
-                                model.sortByName()
-                                break
-                            case 1:
-                                model.sortByArea()
-                                break
-                            case 2:
-                                model.sortByPopulation()
-                        }
-                    }
 
                     delegate: Rectangle {
-                        width: localityListPage.width
+                        width: creatingRoutePage.width
                         height: 40
                         color: Palette.listElementColor
                         border.color: Palette.listElementBorderColor
@@ -152,30 +169,23 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: localityType === "village" ?
-                                      ukrName + " / " + engName:// + " (" + oblast
-                                      ukrName + " / " + engName
+                            text: ukrName + " / " + engName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }
 
-                        ImageButton {
+                        CheckBox {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.right: parent.right
                             anchors.rightMargin: 20
-                            source: "qrc:/icons/more-line.svg"
-                            onClicked: {
-                                // TODO open more menu
-                            }
-                        }
+                            checked: selectedLocalities.contains(keyName)
 
-                        MouseArea {
-                            anchors.fill: parent
-
-                            onClicked: {
-                                searchField.focus = false
-                                application.loadLocalityModel(keyName)
-                                pageStack.push(Pages.localityDescriptionPageUrl)
+                            onCheckedChanged: {
+                                if (checked) {
+                                    selectedLocalities.append(keyName)
+                                } else {
+                                    selectedLocalities.remove(keyName)
+                                }
                             }
                         }
                     }

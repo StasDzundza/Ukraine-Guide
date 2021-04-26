@@ -14,6 +14,7 @@ class RoutesListModel : public QAbstractListModel {
     int rowCount(const QModelIndex & = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
+    QStringList getRoutesList() const;
 
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
     bool isEmpty() const;

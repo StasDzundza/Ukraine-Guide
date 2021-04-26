@@ -17,5 +17,7 @@
 	<file>icons/trash.svg</file>
 	<file>icons/arrow-circle-up.svg</file>
 	<file>icons/arrow-circle-down.svg</file>
+	<file>icons/save.svg</file>
+	<file>icons/edit.svg</file>
     </qresource>
 </RCC>
