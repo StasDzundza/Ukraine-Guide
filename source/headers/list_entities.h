@@ -7,6 +7,7 @@ struct LocalityListEntity {
     QString mKeyName, mUkrName, mEngName, mType;
     double mArea;
     int mPopulation;
+    QString mOblast;
 };
 
 struct EstablishmentsListEntity {

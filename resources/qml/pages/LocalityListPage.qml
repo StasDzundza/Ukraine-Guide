@@ -153,7 +153,7 @@ Page {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
                             text: localityType === "village" ?
-                                      ukrName + " / " + engName:// + " (" + oblast
+                                      ukrName + " / " + engName + " (" + oblast + " обл.)":
                                       ukrName + " / " + engName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize

@@ -9,7 +9,7 @@
 class LocalityListModel : public QAbstractListModel {
     Q_OBJECT
    public:
-    enum LocalityRole { KeyNameRole = Qt::DisplayRole, UkrNameRole, EngNameRole, LocalityTypeRole };
+    enum LocalityRole { KeyNameRole = Qt::DisplayRole, UkrNameRole, EngNameRole, LocalityTypeRole, OblastRole };
     Q_ENUM(LocalityRole)
 
     explicit LocalityListModel(QObject *parent = nullptr);
@@ -27,8 +27,19 @@ class LocalityListModel : public QAbstractListModel {
     int getSize() const;
     Q_SIGNAL void sizeChanged();
 
+    Q_PROPERTY(QString routeName READ getRouteName NOTIFY routeNameChanged)
+    QString getRouteName() const;
+    void setRouteName(const QString &name);
+    Q_SIGNAL void routeNameChanged();
+
+    Q_PROPERTY(bool edited READ isEdited WRITE setIsEdited NOTIFY isEditedChanged)
+    bool isEdited() const;
+    void setIsEdited(const bool isEdited);
+    Q_SIGNAL void isEditedChanged();
+
     Q_INVOKABLE void append(const LocalityListEntity &entity);
     Q_INVOKABLE void remove(const LocalityListEntity &entity);
+    Q_INVOKABLE void remove(const int index);
     Q_INVOKABLE bool contains(const QString &keyName);
     Q_INVOKABLE void clear();
     Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
@@ -43,6 +54,7 @@ class LocalityListModel : public QAbstractListModel {
 
    private:
     void sort(std::function<bool(const LocalityListEntity&, const LocalityListEntity&)> comparator);
-
+    bool mIsEdited;
+    QString mRouteName;
     QVector<LocalityListEntity> mAllLocalitiesList;
 };

@@ -87,7 +87,7 @@ Page {
                             anchors.rightMargin: 20
                             source: "qrc:/icons/trash.svg"
 
-                            onPressed: {
+                            onClicked: {
                                 confirmRouteRemovingPopup.routeIndex = index
                                 confirmRouteRemovingPopup.routeName = routeName
                                 confirmRouteRemovingPopup.open()
@@ -100,7 +100,7 @@ Page {
 
                             onClicked: {
                                 application.loadCurrentRoute(routeName)
-                                pageStack.push(Pages.routePageUrl, {"routeName": routeName})
+                                pageStack.push(Pages.routePageUrl)
                             }
                         }
                     }

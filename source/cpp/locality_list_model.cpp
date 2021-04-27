@@ -8,7 +8,8 @@ QHash<int, QByteArray> LocalityListModel::roleNames() const {
         {KeyNameRole, "keyName"},
         {UkrNameRole, "ukrName"},
         {EngNameRole, "engName"},
-        {LocalityTypeRole, "localityType"}
+        {LocalityTypeRole, "localityType"},
+        {OblastRole, "oblast"}
     };
 }
 
@@ -18,6 +19,20 @@ QStringList LocalityListModel::getKeyNames() const {
         return entity.mKeyName;
     });
     return keyNames;
+}
+
+QString LocalityListModel::getRouteName() const { return mRouteName; }
+
+void LocalityListModel::setRouteName(const QString &name) {
+    mRouteName = name;
+    routeNameChanged();
+}
+
+bool LocalityListModel::isEdited() const { return mIsEdited; }
+
+void LocalityListModel::setIsEdited(const bool edited) {
+    mIsEdited = edited;
+    isEditedChanged();
 }
 
 bool LocalityListModel::isEmpty() const { return mAllLocalitiesList.isEmpty(); }
@@ -39,6 +54,8 @@ QVariant LocalityListModel::data(const QModelIndex &index, int role) const {
                 return mAllLocalitiesList.at(index.row()).mEngName;
             case LocalityTypeRole:
                 return mAllLocalitiesList.at(index.row()).mType;
+            case OblastRole:
+                return mAllLocalitiesList.at(index.row()).mOblast;
             default:
                 return QVariant();
         }
@@ -54,6 +71,8 @@ void LocalityListModel::append(const LocalityListEntity &entity) {
     endInsertRows();
     emit isEmptyChanged();
     emit sizeChanged();
+    mIsEdited = true;
+    isEditedChanged();
 }
 
 void LocalityListModel::remove(const LocalityListEntity &entity) {
@@ -66,6 +85,16 @@ void LocalityListModel::remove(const LocalityListEntity &entity) {
     endRemoveRows();
     emit isEmptyChanged();
     emit sizeChanged();
+    mIsEdited = true;
+    isEditedChanged();
+}
+
+void LocalityListModel::remove(const int index) {
+    beginRemoveRows(QModelIndex(), index, index);
+    mAllLocalitiesList.removeAt(index);
+    endRemoveRows();
+    mIsEdited = true;
+    isEditedChanged();
 }
 
 bool LocalityListModel::contains(const QString &keyName) {
@@ -84,6 +113,8 @@ void LocalityListModel::clear() {
     endResetModel();
     emit isEmptyChanged();
     emit sizeChanged();
+    mIsEdited = true;
+    isEditedChanged();
 }
 
 void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities) {
@@ -94,6 +125,8 @@ void LocalityListModel::resetList(const QVector<LocalityListEntity> &localities)
     dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
     emit isEmptyChanged();
     emit sizeChanged();
+    mIsEdited = false;
+    isEditedChanged();
 }
 
 void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel *other) {
@@ -135,6 +168,8 @@ void LocalityListModel::moveUp(const int idx) {
         }
         endResetModel();
         dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+        mIsEdited = true;
+        isEditedChanged();
     }
 }
 
@@ -148,6 +183,8 @@ void LocalityListModel::moveDown(const int idx) {
         }
         endResetModel();
         dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+        mIsEdited = true;
+        isEditedChanged();
     }
 }
 
@@ -160,5 +197,7 @@ void LocalityListModel::sort(std::function<bool(const LocalityListEntity&, const
     std::sort(mAllLocalitiesList.begin(), mAllLocalitiesList.end(), comparator);
     endResetModel();
     dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+    mIsEdited = true;
+    isEditedChanged();
 }
 

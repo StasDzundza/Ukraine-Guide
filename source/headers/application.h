@@ -37,6 +37,7 @@ public:
     Q_INVOKABLE void loadLocalityModel(const QString &localityKeyName);
     Q_INVOKABLE void loadCurrentRoute(const QString &routeName);
     Q_INVOKABLE void createRoute(const QString &routeName, const QStringList &localities);
+    Q_INVOKABLE void saveCurrentRoute();
     Q_INVOKABLE void removeRoute(const int index);
 
     // slots

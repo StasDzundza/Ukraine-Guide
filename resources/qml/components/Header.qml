@@ -5,6 +5,7 @@ import "../settings"
 Rectangle {
     id: header
     property string title: qsTr("Header")
+    property alias titleColor: title.color
     color: Palette.headerColor
 
     signal backClicked()

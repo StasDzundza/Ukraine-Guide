@@ -56,6 +56,7 @@ void Application::loadLocalityModel(const QString &localityKeyName) {
 
 void Application::loadCurrentRoute(const QString &routeName) {
     mCurrentRouteListModel.resetList(mLocalityDataProvider.getLocalitiesFromRoute(routeName));
+    mCurrentRouteListModel.setRouteName(routeName);
     emit currentRouteListModelChanged();
 }
 
@@ -63,6 +64,11 @@ void Application::createRoute(const QString &routeName, const QStringList &local
     mLocalityDataProvider.saveRoute(routeName, localities);
     mRoutesListModel.append(routeName);
     routesListModelChanged();
+}
+
+void Application::saveCurrentRoute() {
+    mLocalityDataProvider.saveRoute(mCurrentRouteListModel.getRouteName(),
+                                    mCurrentRouteListModel.getKeyNames());
 }
 
 void Application::removeRoute(const int index) {

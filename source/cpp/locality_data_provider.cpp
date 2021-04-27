@@ -183,7 +183,8 @@ LocalityListEntity LocalityDataProvider::createLocalityListEntity(const QString 
                 localityObject.value("engName").toString(),
                 localityObject.value("type").toString(),
                 localityObject.value("area").toDouble(),
-                localityObject.value("population").toInt()
+                localityObject.value("population").toInt(),
+                localityObject.value("oblast").toString()
     };
 }
 
