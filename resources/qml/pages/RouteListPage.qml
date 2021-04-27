@@ -11,6 +11,19 @@ Page {
     height: AppSettings.screenHeight
     title: qsTr("Routes list")
 
+    ConfirmActionPopup {
+        id: confirmRouteRemovingPopup
+        property string routeName
+        property int routeIndex
+        message: qsTr("Ви дійсно хочете видалити\nмаршрут " + routeName + "?")
+
+        onOkPressed: {
+            application.removeRoute(routeIndex)
+            close()
+        }
+        onCancelPressed: close()
+    }
+
     Rectangle {
         anchors.fill: parent
         color: Palette.backgroundColor
@@ -73,13 +86,17 @@ Page {
                             anchors.right: parent.right
                             anchors.rightMargin: 20
                             source: "qrc:/icons/trash.svg"
-                            onClicked: {
-                                // TODO remove route confirmation
+
+                            onPressed: {
+                                confirmRouteRemovingPopup.routeIndex = index
+                                confirmRouteRemovingPopup.routeName = routeName
+                                confirmRouteRemovingPopup.open()
                             }
                         }
 
                         MouseArea {
-                            anchors.fill: parent
+                            height: parent.height
+                            width: parent.width - 50
 
                             onClicked: {
                                 application.loadCurrentRoute(routeName)

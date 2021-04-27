@@ -22,6 +22,7 @@ public:
     // write methods
     void saveFavoriteLocalities(const QStringList &favoriteLocalities);
     void saveRoute(const QString &routeName, const QStringList &localities) const;
+    void removeRoute(const QString &routeName) const;
     void saveRoutesList(const QStringList &routes) const;
 
 private:

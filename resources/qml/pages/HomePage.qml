@@ -11,6 +11,14 @@ Page {
     height: AppSettings.screenHeight
     title: qsTr("Home")
 
+    ConfirmActionPopup {
+        id: exitConfirmationPopup
+        message: qsTr("Ви дійсно хочете вийти?")
+
+        onOkPressed: Qt.quit()
+        onCancelPressed: close()
+    }
+
     Rectangle {
         anchors.fill: parent
         color: Palette.backgroundColor

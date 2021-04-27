@@ -113,7 +113,8 @@ Page {
                         }
 
                         MouseArea {
-                            anchors.fill: parent
+                            height: parent.height
+                            width: editButton.editMode ? parent.width - 130 : parent.width
 
                             ToolTip { id: toolTip }
 

@@ -65,6 +65,12 @@ void Application::createRoute(const QString &routeName, const QStringList &local
     routesListModelChanged();
 }
 
+void Application::removeRoute(const int index) {
+    const QString &routeName = mRoutesListModel.getRoutesList().at(index);
+    mRoutesListModel.remove(index);
+    mLocalityDataProvider.removeRoute(routeName);
+}
+
 void Application::onFavoriteLocalityAdded(const LocalityListEntity &locality) {
     mFavoriteLocalitiesListModel.append(locality);
 }
