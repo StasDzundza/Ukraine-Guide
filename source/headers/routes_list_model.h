@@ -15,6 +15,7 @@ class RoutesListModel : public QAbstractListModel {
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roleNames() const;
     QStringList getRoutesList() const;
+    void renameRoute(const QString &oldName, const QString &newName);
 
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
     bool isEmpty() const;

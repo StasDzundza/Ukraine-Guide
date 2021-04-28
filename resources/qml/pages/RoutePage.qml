@@ -41,6 +41,73 @@ Page {
         }
     }
 
+    Popup {
+        id: renameRoutePopup
+        anchors.centerIn: Overlay.overlay
+        width: routePage.width / 1.5
+        height: 200
+        padding: 0
+        modal: true
+
+        background: Rectangle {
+            color: Palette.popupBackgroundColor
+            radius: 10
+            border.width: 2
+            border.color: Palette.borderColor
+        }
+
+        ColumnLayout {
+            anchors.centerIn: parent
+            spacing: 50
+            width: message.contentWidth
+
+            Rectangle {
+                id: routeNameArea
+                Layout.preferredWidth: renameRoutePopup.width - 20
+                Layout.preferredHeight: 40
+                color: "transparent"
+                border.color: Palette.borderColor
+                border.width: 1
+                radius: 10
+
+                TextInput {
+                    id: routeName
+                    text: application.currentRouteListModel.routeName
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    color: Palette.blockTextColor
+                    font.pointSize: AppSettings.blockTextFontSize
+                    wrapMode: TextInput.Wrap
+                    maximumLength: 20
+                }
+            }
+
+            CustomButton {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: renameRoutePopup.width - 20
+                Layout.preferredHeight: 40
+                color: Palette.acceptButtonColor
+                text: qsTr("Перейменувати")
+
+                ToolTip { id: tip }
+
+                onClicked: {
+                    if (routeName.displayText !== "") {
+                        if (application.routesListModel.contains(routeName.displayText)) {
+                            tip.show("Маршрут з таким іменем вже існує!", 1000)
+                        } else {
+                            application.renameCurrentRoute(routeName.displayText)
+                            renameRoutePopup.close()
+                        }
+                    } else {
+                        tip.show("Введіть назву маршруту!", 1000)
+                    }
+                }
+            }
+        }
+    }
+
     Rectangle {
         anchors.fill: parent
         color: Palette.backgroundColor
@@ -77,6 +144,8 @@ Page {
                         pageStack.pop()
                     }
                 }
+
+                onTitleTriggered: renameRoutePopup.open()
             }
 
             Button {

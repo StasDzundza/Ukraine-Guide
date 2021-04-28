@@ -201,6 +201,11 @@ void LocalityDataProvider::removeRoute(const QString &routeName) const {
     file.remove();
 }
 
+void LocalityDataProvider::renameRoute(const QString &oldName, const QString &newName) const {
+    QFile file (routeNameToFileName(oldName));
+    file.rename(routeNameToFileName(newName));
+}
+
 void LocalityDataProvider::saveRoutesList(const QStringList &routes) const {
     saveData(ROUTES_JSON_PATH, QStringLiteral("routes"), routes);
 }

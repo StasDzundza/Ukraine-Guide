@@ -77,6 +77,13 @@ void Application::removeRoute(const int index) {
     mLocalityDataProvider.removeRoute(routeName);
 }
 
+void Application::renameCurrentRoute(const QString &newName) {
+    const QString oldRouteName = mCurrentRouteListModel.getRouteName();
+    mCurrentRouteListModel.setRouteName(newName);
+    mLocalityDataProvider.renameRoute(oldRouteName, newName);
+    mRoutesListModel.renameRoute(oldRouteName, newName);
+}
+
 void Application::onFavoriteLocalityAdded(const LocalityListEntity &locality) {
     mFavoriteLocalitiesListModel.append(locality);
 }

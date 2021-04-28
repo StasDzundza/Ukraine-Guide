@@ -11,6 +11,12 @@ QHash<int, QByteArray> RoutesListModel::roleNames() const {
 
 QStringList RoutesListModel::getRoutesList() const { return mAllRoutes; }
 
+void RoutesListModel::renameRoute(const QString &oldName, const QString &newName) {
+    beginResetModel();
+    std::replace(mAllRoutes.begin(), mAllRoutes.end(), oldName, newName);
+    endResetModel();
+}
+
 bool RoutesListModel::isEmpty() const { return mAllRoutes.isEmpty(); }
 
 int RoutesListModel::getSize() const { return mAllRoutes.size(); }

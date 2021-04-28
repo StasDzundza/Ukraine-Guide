@@ -10,6 +10,7 @@ Rectangle {
 
     signal backClicked()
     signal starClicked()
+    signal titleTriggered()
 
     ImageButton {
         id: backButton
@@ -27,5 +28,10 @@ Rectangle {
         color: Palette.headerTextColor
         font.pointSize: AppSettings.titleFontSize
         font.bold: true
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: header.titleTriggered()
+        }
     }
 }

@@ -23,6 +23,7 @@ public:
     void saveFavoriteLocalities(const QStringList &favoriteLocalities);
     void saveRoute(const QString &routeName, const QStringList &localities) const;
     void removeRoute(const QString &routeName) const;
+    void renameRoute(const QString &oldName, const QString &newName) const;
     void saveRoutesList(const QStringList &routes) const;
 
 private:

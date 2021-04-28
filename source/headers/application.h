@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE void createRoute(const QString &routeName, const QStringList &localities);
     Q_INVOKABLE void saveCurrentRoute();
     Q_INVOKABLE void removeRoute(const int index);
+    Q_INVOKABLE void renameCurrentRoute(const QString &newName);
 
     // slots
     Q_SLOT void onFavoriteLocalityAdded(const LocalityListEntity &locality);
