@@ -26,5 +26,6 @@
         <file>qml/pages/CreatingRoutePage.qml</file>
         <file>qml/components/Placeholder.qml</file>
         <file>qml/components/ConfirmActionPopup.qml</file>
+        <file>qml/pages/AddLocalityToRoutePage.qml</file>
     </qresource>
 </RCC>

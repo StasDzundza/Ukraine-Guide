@@ -18,7 +18,6 @@ Popup {
 
     background: Rectangle {
         color: Palette.popupBackgroundColor
-        radius: 10
         border.width: 2
         border.color: Palette.borderColor
     }

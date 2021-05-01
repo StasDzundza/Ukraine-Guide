@@ -188,6 +188,17 @@ void LocalityListModel::moveDown(const int idx) {
     }
 }
 
+void LocalityListModel::appendList(const QVector<LocalityListEntity> &newLocalities) {
+    beginResetModel();
+    std::copy(newLocalities.begin(), newLocalities.end(), std::back_inserter(mAllLocalitiesList));
+    endResetModel();
+    dataChanged(index(0, 0), index(mAllLocalitiesList.count(), 0), {KeyNameRole, UkrNameRole, EngNameRole});
+    emit isEmptyChanged();
+    emit sizeChanged();
+    mIsEdited = true;
+    emit isEditedChanged();
+}
+
 void LocalityListModel::declareQML() {
     qmlRegisterType<LocalityListModel>("com.UkraineGuide.LocalityListModel", 1, 0, "LocalityListModel");
 }

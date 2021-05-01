@@ -59,7 +59,6 @@ Page {
         ColumnLayout {
             anchors.centerIn: parent
             spacing: 50
-            width: message.contentWidth
 
             Rectangle {
                 id: routeNameArea
@@ -154,9 +153,7 @@ Page {
                 Layout.preferredWidth: routePage.width
                 visible: editButton.editMode
 
-                onClicked: {
-                    // TODO open adding localities
-                }
+                onClicked: pageStack.push(Pages.addLocalityToRoutePageUrl)
             }
 
             Text {
@@ -188,9 +185,7 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: localityType === "village" ?
-                                      (index + 1) + ". " + ukrName + " / " + engName + " (" + oblast + " обл.)":
-                                      (index + 1) + ". " + ukrName + " / " + engName
+                            text: (index + 1) + ". " + ukrName + " / " + engName
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }

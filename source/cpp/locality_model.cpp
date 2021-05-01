@@ -45,7 +45,7 @@ EstablishmentsListModel *LocalityModel::getEstablishments() { return &mEstablish
 void LocalityModel::changeFavoriteStatus() {
     mIsFavorite = !mIsFavorite;
     emit isFavoriteChanged();
-    LocalityListEntity locality{mKeyName, mUkrName, mEngName, LocalityType::toString(mType), mArea, mPopulation};
+    LocalityListEntity locality{mKeyName, mUkrName, mEngName, LocalityType::toString(mType), mArea, mPopulation, mOblast};
     if (mIsFavorite) {
         emit favoriteLocalityAdded(locality);
     } else {

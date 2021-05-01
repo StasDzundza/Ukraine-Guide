@@ -42,13 +42,14 @@ class LocalityListModel : public QAbstractListModel {
     Q_INVOKABLE void remove(const int index);
     Q_INVOKABLE bool contains(const QString &keyName);
     Q_INVOKABLE void clear();
-    Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &mAllLocalitiesList);
+    Q_INVOKABLE void resetList(const QVector<LocalityListEntity> &localities);
     Q_INVOKABLE void fillSearchModel(const QString &prefix, LocalityListModel* other);
     Q_INVOKABLE void sortByName();
     Q_INVOKABLE void sortByArea();
     Q_INVOKABLE void sortByPopulation();
     Q_INVOKABLE void moveUp(const int index);
     Q_INVOKABLE void moveDown(const int index);
+    Q_INVOKABLE void appendList(const QVector<LocalityListEntity> &newLocalities);
 
     static void declareQML();
 

@@ -18,6 +18,7 @@ public:
     QString getLocalityShortDescription(const QString &keyName) const;
     QStringList getRoutesList() const;
     QVector<LocalityListEntity> getLocalitiesFromRoute(const QString &routeName);
+    QVector<LocalityListEntity> getSpecificLocalitiesList(const QStringList &keyNames) const;
 
     // write methods
     void saveFavoriteLocalities(const QStringList &favoriteLocalities);
@@ -27,7 +28,6 @@ public:
     void saveRoutesList(const QStringList &routes) const;
 
 private:
-    QVector<LocalityListEntity> getSpecificLocalitiesList(const QStringList &keyNames) const;
     LocalityListEntity createLocalityListEntity(const QString &keyName) const;
     QString routeNameToFileName(const QString &routeName) const;
     void saveData(const QString &fileName, const QString &arrayName, const QStringList &keys) const;
