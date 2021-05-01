@@ -90,7 +90,7 @@ Page {
                 Layout.preferredHeight: 40
                 Layout.alignment: Qt.AlignHCenter
                 color: "transparent"
-                border.color: Palette.borderColor
+                border.color: Palette.listElementColor
                 border.width: 1
                 radius: 10
 
@@ -190,10 +190,6 @@ Page {
                                 }
                             }
                         }
-                    }
-
-                    ScrollBar.vertical: ScrollBar {
-                        policy: ScrollBar.AlwaysOn
                     }
                 }
             }

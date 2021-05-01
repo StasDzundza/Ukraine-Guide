@@ -5,7 +5,7 @@ import "../settings"
 Rectangle {
     property alias text: buttonText.text
     color: Palette.acceptButtonColor
-    radius: 10
+    radius: 5
     border.width: 2
     border.color: Palette.borderColor
 
@@ -14,7 +14,7 @@ Rectangle {
     Text {
         id: buttonText
         anchors.centerIn: parent
-        color: Palette.blockTextColor
+        color: Palette.buttoTextColor
         font.pointSize: AppSettings.buttonTextFontSize
     }
 

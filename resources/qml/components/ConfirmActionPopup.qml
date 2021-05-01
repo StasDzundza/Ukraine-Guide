@@ -8,8 +8,8 @@ Popup {
     id: confirmActionPopup
     property alias message: message.text
     anchors.centerIn: Overlay.overlay
-    width: message.contentWidth + 30
-    height: 200
+    width: AppSettings.screenWidth * 0.95
+    height: 250
     padding: 0
     modal: true
 
@@ -25,7 +25,7 @@ Popup {
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 50
-        width: message.contentWidth
+        width: confirmActionPopup.width
 
         Text {
             id: message

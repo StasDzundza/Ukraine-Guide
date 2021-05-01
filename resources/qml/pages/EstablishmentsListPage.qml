@@ -65,10 +65,6 @@ Page {
                             onClicked: Qt.openUrlExternally(moreInfoUrl)
                         }
                     }
-
-                    ScrollBar.vertical: ScrollBar {
-                        policy: ScrollBar.AlwaysOn
-                    }
                 }
             }
         }

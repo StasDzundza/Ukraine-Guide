@@ -162,10 +162,6 @@ Page {
                         wrapMode: TextArea.Wrap
                         enabled: false
                     }
-
-                    ScrollBar.vertical: ScrollBar {
-                        policy: ScrollBar.AlwaysOn
-                    }
                 }
             }
         }

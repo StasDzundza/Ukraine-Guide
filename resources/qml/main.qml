@@ -14,10 +14,8 @@ ApplicationWindow {
     visible: true
     title: qsTr("Ukraine Guide")
 
-    Material.accent: Material.Lime
-    Material.background: Material.Lime
-    Material.foreground: Material.Cyan
-    Material.primary: Material.Cyan
+    Material.accent: Material.Brown
+    Material.background: Material.Brown
 
     StackView {
         id: pageStack
