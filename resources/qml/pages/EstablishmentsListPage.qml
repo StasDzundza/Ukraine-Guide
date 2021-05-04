@@ -55,7 +55,7 @@ Page {
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             x: 20
-                            text: index + ". " + ukrName + " / " + engName + " (" + type + ")"
+                            text: (index + 1) + ". " + ukrName + " / " + engName + " (" + type + ")"
                             color: Palette.blockTextColor
                             font.pointSize: AppSettings.blockTextFontSize
                         }

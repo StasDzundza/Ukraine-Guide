@@ -167,7 +167,7 @@ Page {
 
             ScrollView {
                 Layout.preferredWidth: routePage.width
-                Layout.preferredHeight: routePage.height - 60
+                Layout.preferredHeight: routePage.height - 150
 
                 ListView {
                     id: localitiesList

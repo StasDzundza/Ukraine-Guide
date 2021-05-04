@@ -119,7 +119,7 @@ Page {
 
             ScrollView {
                 Layout.preferredWidth: addLocalityToRoutePage.width
-                Layout.preferredHeight: addLocalityToRoutePage.height - 100
+                Layout.preferredHeight: addLocalityToRoutePage.height - 200
 
                 ListView {
                     id: localityList

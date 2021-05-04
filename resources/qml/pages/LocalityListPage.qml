@@ -14,7 +14,7 @@ Page {
     height: AppSettings.screenHeight
     title: qsTr("Locality list")
 
-    function sortByName() { localityList.model.sortByName(); }
+    function sortByName() { localityList.model.sortByName() }
 
     Rectangle {
         anchors.fill: parent
@@ -119,7 +119,7 @@ Page {
 
             ScrollView {
                 Layout.preferredWidth: localityListPage.width
-                Layout.preferredHeight: localityListPage.height - 60
+                Layout.preferredHeight: localityListPage.height - 210
 
                 ListView {
                     id: localityList

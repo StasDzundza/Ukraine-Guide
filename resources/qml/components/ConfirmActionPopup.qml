@@ -29,6 +29,7 @@ Popup {
 
         Text {
             id: message
+            Layout.alignment: Text.AlignHCenter
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: AppSettings.titleFontSize
             font.bold: true

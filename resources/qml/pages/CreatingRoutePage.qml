@@ -150,7 +150,7 @@ Page {
 
             ScrollView {
                 Layout.preferredWidth: creatingRoutePage.width
-                Layout.preferredHeight: creatingRoutePage.height - 60
+                Layout.preferredHeight: creatingRoutePage.height - 200
 
                 ListView {
                     id: localityList
@@ -183,10 +183,15 @@ Page {
                             checked: selectedLocalities.contains(keyName)
 
                             onCheckedChanged: {
+                                console.log("checked changed to " + checked + " !!!!!!!!!!!!!!!!!")
                                 if (checked) {
+                                    console.log("true !!!!!!!!!!!!!!!!!")
                                     selectedLocalities.append(keyName)
+                                    console.log("added !!!!!!!!!!!!!!!!!")
                                 } else {
+                                    console.log("false !!!!!!!!!!!!!!!!!")
                                     selectedLocalities.remove(keyName)
+                                    console.log("removed !!!!!!!!!!!!!!!!!")
                                 }
                             }
                         }

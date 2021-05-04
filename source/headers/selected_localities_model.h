@@ -6,6 +6,8 @@
 class SelectedLocalitiesModel : public QObject {
     Q_OBJECT
    public:
+    explicit SelectedLocalitiesModel(QObject *parent = nullptr);
+
     Q_PROPERTY(QStringList selectedLocalities READ getSelectedLocalities NOTIFY selectedLocalitiesChanged)
     QStringList getSelectedLocalities() const;
     Q_SIGNAL void selectedLocalitiesChanged();

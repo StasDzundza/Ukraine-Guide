@@ -142,7 +142,7 @@ void LocalityListModel::fillSearchModel(const QString &prefix, LocalityListModel
 
 void LocalityListModel::sortByName() {
     sort([](const LocalityListEntity &first, const LocalityListEntity &second) {
-        return first.mEngName < second.mEngName;
+        return first.mUkrName.toLower() < second.mUkrName.toLower();
     });
 }
 

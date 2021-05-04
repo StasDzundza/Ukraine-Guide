@@ -154,7 +154,8 @@ Page {
 
                 Flickable {
                     id: flickable
-                    Layout.preferredWidth: localityDescriptionPage.width
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredWidth: localityDescriptionPage.width - 20
                     Layout.preferredHeight: 300
 
                     TextArea.flickable: TextArea {
