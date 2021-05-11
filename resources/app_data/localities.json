@@ -17,16 +17,35 @@
     "vinnytsia": {
         "engName": "Vinnytsia",
         "ukrName": "Вінниця",
-        "population": 50000,
-        "area": 100,
-        "oblast": "",
+        "population": 370609,
+        "area": 113.2,
+        "oblast": "Вінницька",
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1640",
+        "coordinates": [49.1414, 28.2802],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["img1.jpg", "img2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%BD%D0%BD%D0%B8%D1%86%D1%8F",
+        "topEspablishments": [
+            {
+                "ukrName": "Нова провінція",
+                "engName": "Nove Provincia",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.restoracia-nova-provincia.com/"
+            },
+            {
+                "ukrName": "Вінницька реберня",
+                "engName": "Vinnyts`ka rebernia",
+                "type": "Pub",
+                "moreInfoUrl": "https://vinrebra.com/"
+            },
+            {
+                "ukrName": "Скіфія",
+                "engName": "Skifia",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.instagram.com/scythia_sk/?hl=ua"
+            }
+        ]
     },
     "dnipro": {
         "engName": "Dnipro",
