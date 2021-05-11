@@ -8,12 +8,20 @@
         <file>app_data/localities_data/vinnytsia/img1.jpg</file>
         <file>app_data/localities_data/vinnytsia/img2.jpg</file>
 
+        <file>app_data/localities_data/dnipro/1.jpg</file>
+        <file>app_data/localities_data/dnipro/2.jpg</file>
         <file>app_data/localities_data/dnipro/description.txt</file>
 
+        <file>app_data/localities_data/donetsk/1.jpg</file>
+        <file>app_data/localities_data/donetsk/2.jpg</file>
         <file>app_data/localities_data/donetsk/description.txt</file>
 
+        <file>app_data/localities_data/zhytomyr/1.jpeg</file>
+        <file>app_data/localities_data/zhytomyr/2.jpeg</file>
         <file>app_data/localities_data/zhytomyr/description.txt</file>
 
+        <file>app_data/localities_data/zaporizhzhia/1.jpeg</file>
+        <file>app_data/localities_data/zaporizhzhia/2.jpg</file>
         <file>app_data/localities_data/zaporizhzhia/description.txt</file>
 
         <file>app_data/localities_data/ivano-frankivsk/description.txt</file>
@@ -26,6 +34,8 @@
         <file>app_data/localities_data/kyiv/img1.jpg</file>
         <file>app_data/localities_data/kyiv/img2.jpg</file>
 
+        <file>app_data/localities_data/kropyvnytskyi/1.jpg</file>
+        <file>app_data/localities_data/kropyvnytskyi/2.jpg</file>
         <file>app_data/localities_data/kropyvnytskyi/description.txt</file>
 
         <file>app_data/localities_data/luhansk/description.txt</file>

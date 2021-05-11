@@ -50,76 +50,170 @@
     "dnipro": {
         "engName": "Dnipro",
         "ukrName": "Дніпро",
-        "population": 50000,
-        "area": 100,
+        "population": 990724,
+        "area": 409.718,
+        "oblast": "Дніпропетровська",
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1778",
+        "coordinates": [48.27, 35.01],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE_(%D0%BC%D1%96%D1%81%D1%82%D0%BE)",
+        "topEspablishments": [
+            {
+                "ukrName": "Бірштубе",
+                "engName": "Bierstube",
+                "type": "Pub",
+                "moreInfoUrl": "http://karusel.in.ua/pab-birshtube-v-dnepropetrovske/"
+            },
+            {
+                "ukrName": "Ван Гог",
+                "engName": "Van Gogh",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.facebook.com/vangoghdp"
+            },
+            {
+                "ukrName": "Фелічіта-Дольче",
+                "engName": "Felichita-Dolche",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://tomato.ua/ua/dnepr/restaurants/felicita-dolce"
+            }
+        ]
     },
     "donetsk": {
         "engName": "Donetsk",
         "ukrName": "Донецьк",
-        "population": 50000,
-        "area": 100,
+        "population": 908456,
+        "area": 358,
+        "oblast": "Донецька",
         "type": "city",
         "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "coordinates": [48.00, 37.48],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%BD%D0%B5%D1%86%D1%8C%D0%BA",
+        "topEspablishments": [
+            {
+                "ukrName": "Юзовська пивоварня",
+                "engName": "Yuzovs`ka pivovarnia",
+                "type": "Bar",
+                "moreInfoUrl": "https://juz.dn.ua/"
+            },
+            {
+                "ukrName": "Старий Шансон",
+                "engName": "Starii Shanson",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://cafeshanson.ucoz.ru/"
+            },
+            {
+                "ukrName": "Суші Таун",
+                "engName": "Sushi Town",
+                "type": "Sushi bar",
+                "moreInfoUrl": "https://sushi-town.com.ua/"
+            }
+        ]
     },
     "zhytomyr": {
         "engName": "Zhytomyr",
         "ukrName": "Житомир",
-        "population": 50000,
-        "area": 100,
+        "population": 264318,
+        "area": 61,
+        "oblast": "Житомирська",
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "884",
+        "coordinates": [50.15, 28.39],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpeg", "2.jpeg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80",
+        "topEspablishments": [
+            {
+                "ukrName": "Айс Фешн",
+                "engName": "Ice Fashion",
+                "type": "Cafe",
+                "moreInfoUrl": "https://ice-fashion.rud.ua/"
+            },
+            {
+                "ukrName": "Буржуа",
+                "engName": "Bourgeois",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.facebook.com/bourgeois.com.ua/"
+            }
+        ]
     },
     "zaporizhzhia": {
         "engName": "Zaporizhzhia",
         "ukrName": "Запоріжжя",
-        "population": 50000,
-        "area": 100,
+        "population": 731922,
+        "area": 331,
+        "oblast": "Запорізька",
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1770",
+        "coordinates": [47.50, 35.08],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpeg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D1%96%D0%B6%D0%B6%D1%8F",
+        "topEspablishments": [
+            {
+                "ukrName": "Бергамот",
+                "engName": "Bergamot",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://bergamot-restaurant.business.site/"
+            },
+            {
+                "ukrName": "Bull butcher and wine",
+                "engName": "Bull butcher and wine",
+                "type": "Steak house",
+                "moreInfoUrl": "https://www.facebook.com/bull.butcher.and.wine/"
+            },
+            {
+                "ukrName": "Лакі",
+                "engName": "Lucky",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.facebook.com/goodluckyzp"
+            }
+        ]
     },
     "ivano-frankivsk": {
         "engName": "Ivano-Frankivsk",
         "ukrName": "Івано-Франківськ",
-        "population": 100000,
-        "area": 200,
+        "population": 237685,
+        "area": 87,
+        "oblast": "Івано-Франківська",
         "type": "city",
-        "foundationDate": "1422",
+        "foundationDate": "1662",
         "coordinates": [48.9219, 24.7121],
         "neighbours": ["kalush"],
         "images": ["img1.jpg"],
         "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA",
-        "topEspablishments": []
+        "topEspablishments": [
+            {
+                "ukrName": "Фамілія",
+                "engName": "Familia",
+                "type": "Restaurant",
+                "moreInfoUrl": "https://www.facebook.com/Familiya.if"
+            },
+            {
+                "ukrName": "Урбан Спейс 100",
+                "engName": "Urban Space 100",
+                "type": "Restaurant",
+                "moreInfoUrl": "facebook.com/urbanspace100/"
+            },
+            {
+                "ukrName": "Кімбо",
+                "engName": "Kibo",
+                "type": "Cafe",
+                "moreInfoUrl": "https://www.facebook.com/kaviarniakimbo/"
+            }
+        ]
     },
     "kalush": {
         "engName": "Kalush",
         "ukrName": "Калуш",
-        "population": 50000,
-        "area": 100,
+        "population": 66500,
+        "area": 64.53,
         "oblast": "Івано-Франківська",
         "type": "city",
-        "foundationDate": "1422",
+        "foundationDate": "1437",
         "coordinates": [49.0292, 24.3645],
         "neighbours": ["ivano-frankivsk", "tuzhyliv1"],
         "images": ["img1.jpg"],
@@ -129,10 +223,11 @@
     "kyiv": {
         "engName": "Kyiv",
         "ukrName": "Київ",
-        "population": 2962200,
-        "area": 10000,
+        "population": 2963200,
+        "area": 847.66,
+        "oblast": "Київська",
         "type": "city",
-        "foundationDate": "1422",
+        "foundationDate": "482",
         "coordinates": [50.4480, 30.5231],
         "neighbours": [],
         "images": ["img1.jpg", "img2.jpg"],
@@ -149,21 +244,52 @@
                 "engName": "Dominos",
                 "type": "Pizzeria",
                 "moreInfoUrl": "https://dominos.ua/uk/kyiv/"
+            },
+            {
+                "ukrName": "Пузата Хата",
+                "engName": "Puzata Hata",
+                "type": "Canteen",
+                "moreInfoUrl": "https://puzatahata.ua/"
+            },
+            {
+                "ukrName": "П'яна вишня",
+                "engName": "Drunk Cherry",
+                "type": "Bar",
+                "moreInfoUrl": "https://www.facebook.com/DrunkCherryKyiv/"
+            },
+            {
+                "ukrName": "Портер паб",
+                "engName": "Porter Pub",
+                "type": "Pub",
+                "moreInfoUrl": "https://porter.com.ua/"
             }
         ]
     },
     "kropyvnytskyi": {
         "engName": "Kropyvnytskyi",
         "ukrName": "Кропивницький",
-        "population": 50000,
-        "area": 100,
+        "population": 227413,
+        "area": 103,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1754",
+        "coordinates": [48.30, 32.16],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%9A%D1%80%D0%BE%D0%BF%D0%B8%D0%B2%D0%BD%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9",
+        "topEspablishments": [
+            {
+                "ukrName": "Зефір",
+                "engName": "Zephir",
+                "type": "Cafe",
+                "moreInfoUrl": "https://tomato.ua/ua/kropyvnytskyi/restaurants/zefir"
+            },
+            {
+                "ukrName": "Манія",
+                "engName": "Mania",
+                "type": "Cafe",
+                "moreInfoUrl": "https://tomato.ua/ua/kropyvnytskyi/restaurants/mania"
+            }
+        ]
     },
     "luhansk": {
         "engName": "Luhansk",
