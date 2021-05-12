@@ -38,16 +38,30 @@
         <file>app_data/localities_data/kropyvnytskyi/2.jpg</file>
         <file>app_data/localities_data/kropyvnytskyi/description.txt</file>
 
+        <file>app_data/localities_data/luhansk/1.jpg</file>
+        <file>app_data/localities_data/luhansk/2.jpg</file>
         <file>app_data/localities_data/luhansk/description.txt</file>
 
+        <file>app_data/localities_data/lutsk/1.jpg</file>
+        <file>app_data/localities_data/lutsk/2.jpg</file>
         <file>app_data/localities_data/lutsk/description.txt</file>
 
+        <file>app_data/localities_data/lviv/1.jpg</file>
+        <file>app_data/localities_data/lviv/2.jpg</file>
+        <file>app_data/localities_data/lviv/3.jpg</file>
         <file>app_data/localities_data/lviv/description.txt</file>
 
-        <file>app_data/localities_data/luhansk/description.txt</file>
+        <file>app_data/localities_data/mykolaiv/1.jpg</file>
+        <file>app_data/localities_data/mykolaiv/2.jpg</file>
+        <file>app_data/localities_data/mykolaiv/description.txt.txt</file>
 
+        <file>app_data/localities_data/odesa/1.jpg</file>
+        <file>app_data/localities_data/odesa/2.jpg</file>
+        <file>app_data/localities_data/odesa/3.jpg</file>
         <file>app_data/localities_data/odesa/description.txt</file>
 
+        <file>app_data/localities_data/poltava/1.jpg</file>
+        <file>app_data/localities_data/poltava/2.jpg</file>
         <file>app_data/localities_data/poltava/description.txt</file>
 
         <file>app_data/localities_data/rivne/description.txt</file>

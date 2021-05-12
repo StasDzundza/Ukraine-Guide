@@ -1,6 +1,6 @@
 import os
 
-cities = ["tuzhyliv1","vinnytsia", "dnipro","donetsk","zhytomyr","zaporizhzhia","ivano-frankivsk","kalush","kyiv", "kropyvnytskyi", "luhansk","lutsk","lviv","luhansk",
+cities = ["tuzhyliv1","vinnytsia", "dnipro","donetsk","zhytomyr","zaporizhzhia","ivano-frankivsk","kalush","kyiv", "kropyvnytskyi", "luhansk","lutsk","lviv","mykolaiv",
 "odesa","poltava","rivne","sumy","ternopil","uzhorod","kharkiv","kherson","khmelnytskyi","cherkasy","chernivtsi","chernihiv"]
 
 def create_city_resources():
