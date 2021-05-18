@@ -462,131 +462,261 @@
     "rivne": {
         "engName": "Rivne",
         "ukrName": "Рівне",
-        "population": 50000,
-        "area": 100,
+        "population": 245272,
+        "area": 64,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1283",
+        "coordinates": [50.37, 26.15],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpeg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A0%D1%96%D0%B2%D0%BD%D0%B5",
+        "topEspablishments": [
+            {
+                "ukrName": "На Грушевського",
+                "engName": "Na Hrushevskoho",
+                "type": "Bar",
+                "moreInfoUrl": "http://brovarnya-rivne.com/"
+            },
+            {
+                "ukrName": "Люблін",
+                "engName": "Lublin",
+                "type": "Restaurant/Hotel",
+                "moreInfoUrl": "http://hotelukraine.rv.ua/"
+            }
+        ]
     },
     "sumy": {
         "engName": "Sumy",
         "ukrName": "Суми",
-        "population": 50000,
-        "area": 100,
+        "population": 263448,
+        "area": 95.3858,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1652",
+        "coordinates": [50.54, 34.48],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.png", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A1%D1%83%D0%BC%D0%B8",
+        "topEspablishments": [
+            {
+                "ukrName": "Прем'єр",
+                "engName": "Premier",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://sites.google.com/view/svadba-premier-sumy/"
+            },
+            {
+                "ukrName": "ПотроХа",
+                "engName": "PotroXa",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://instagram.com/rest.potroxa"
+            }
+        ]
     },
     "ternopil": {
         "engName": "Ternopil",
         "ukrName": "Тернопіль",
-        "population": 50000,
-        "area": 100,
+        "population": 224127,
+        "area": 72,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1540",
+        "coordinates": [49.34, 25.36],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D1%80%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C",
+        "topEspablishments": [
+            {
+                "ukrName": "Фламінго",
+                "engName": "Flamingo",
+                "type": "Pizzeria",
+                "moreInfoUrl": "http://samogon.org/pasteria_flamingo"
+            },
+            {
+                "ukrName": "Ковчег",
+                "engName": "Kovcheg",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://samogon.org/kovcheg"
+            }
+        ]
     },
     "uzhorod": {
         "engName": "Uzhorod",
         "ukrName": "Ужгород",
-        "population": 50000,
-        "area": 100,
+        "population": 115512,
+        "area": 41.56,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1154",
+        "coordinates": [48.37, 22.17],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A3%D0%B6%D0%B3%D0%BE%D1%80%D0%BE%D0%B4",
+        "topEspablishments": [
+            {
+                "ukrName": "Ченто Перченто",
+                "engName": "Cento Percento",
+                "type": "Pizzeria",
+                "moreInfoUrl": "http://facebook.com/TrattoriaCentoPercento"
+            },
+            {
+                "ukrName": "Віраж",
+                "engName": "Virazh",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://hotelvirage.com/restaurant"
+            }
+        ]
     },
     "kharkiv": {
         "engName": "Kharkiv",
         "ukrName": "Харків",
-        "population": 50000,
-        "area": 100,
+        "population": 1443207,
+        "area": 370,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1654",
+        "coordinates": [50.00, 36.13],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A5%D0%B0%D1%80%D0%BA%D1%96%D0%B2",
+        "topEspablishments": [
+            {
+                "ukrName": "Суши и лапша 966",
+                "engName": "Sushi and pasta 966",
+                "type": "Sushi bar",
+                "moreInfoUrl": "http://966.com.ua/"
+            },
+            {
+                "ukrName": "Фіолет",
+                "engName": "FIOLET",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://fiolet.kh.ua/"
+            }
+        ]
     },
     "kherson": {
         "engName": "Kherson",
         "ukrName": "Херсон",
-        "population": 50000,
-        "area": 100,
+        "population": 283071,
+        "area": 145,
         "type": "city",
-        "foundationDate": "1422",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1778",
+        "coordinates": [46.38, 32.36],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A5%D0%B5%D1%80%D1%81%D0%BE%D0%BD",
+        "topEspablishments": [
+            {
+                "ukrName": "Форсаж",
+                "engName": "Forsage",
+                "type": "Pub",
+                "moreInfoUrl": "http://facebook.com/Forsage.ks"
+            },
+            {
+                "ukrName": "Грінстоун",
+                "engName": "Greenstone",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://greenstone.com.ua/"
+            }
+        ]
     },
     "khmelnytskyi": {
         "engName": "Khmelnytskyi ",
         "ukrName": "Хмельницький",
-        "population": 273713,
-        "area": 100,
+        "population": 274692,
+        "area": 93.05,
         "type": "city",
         "foundationDate": "1431",
-        "coordinates": [49.0292, 24.3645],
+        "coordinates": [49.25, 26.58],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A5%D0%BC%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9",
+        "topEspablishments": [
+            {
+                "ukrName": "Львівські круасани",
+                "engName": "Lviv croissants",
+                "type": "Cafe",
+                "moreInfoUrl": "https://www.lviv-croissants.com/"
+            },
+            {
+                "ukrName": "Шпигель",
+                "engName": "Shpigel",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://facebook.com/restoraciaspigel"
+            }
+        ]
     },
     "сherkasy": {
         "engName": "Cherkasy",
         "ukrName": "Черкаси",
-        "population": 274762,
-        "area": 100,
+        "population": 273533,
+        "area": 75,
         "type": "city",
-        "foundationDate": "1286",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1795",
+        "coordinates": [49.26, 32.03],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpeg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A7%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D0%B8",
+        "topEspablishments": [
+            {
+                "ukrName": "Сервант",
+                "engName": "Servant",
+                "type": "Cafe",
+                "moreInfoUrl": "http://facebook.com/servant.ck.ua"
+            },
+            {
+                "ukrName": "Тарас Бульба",
+                "engName": "Taras Bulba",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://korchmabulba.tk/"
+            }
+        ]
     },
     "chernivtsi": {
         "engName": "Chernivtsi",
         "ukrName": "Чернівці",
-        "population": 267060,
-        "area": 100,
+        "population": 265515,
+        "area": 153,
         "type": "city",
-        "foundationDate": "1408",
-        "coordinates": [49.0292, 24.3645],
+        "foundationDate": "1407",
+        "coordinates": [48.17, 25.56],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B2%D1%86%D1%96",
+        "topEspablishments": [
+            {
+                "ukrName": "Джоллі",
+                "engName": "Jolly",
+                "type": "Cafe",
+                "moreInfoUrl": "https://tomato.ua/ua/chernovtsy/restaurants/jolly"
+            },
+            {
+                "ukrName": "Гопачок",
+                "engName": "Gopachok",
+                "type": "Restaurant",
+                "moreInfoUrl": "http://facebook.com/gopachok/?fref=nf"
+            }
+        ]
     },
     "chernihiv": {
         "engName": "Chernihiv",
         "ukrName": "Чернігів",
-        "population": 286899,
-        "area": 100,
+        "population": 285056,
+        "area": 79,
         "type": "city",
         "foundationDate": "907",
-        "coordinates": [49.0292, 24.3645],
+        "coordinates": [51.29, 31.17],
         "neighbours": [],
-        "images": [],
-        "moreInfoUrl": "",
-        "topEspablishments": []
+        "images": ["1.jpg", "2.jpg"],
+        "moreInfoUrl": "https://uk.wikipedia.org/wiki/%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2",
+        "topEspablishments": [
+            {
+                "ukrName": "Марконі",
+                "engName": "Markoni",
+                "type": "Pizzeria",
+                "moreInfoUrl": "http://facebook.com/marconi.pizza"
+            },
+            {
+                "ukrName": "Оранж Бар",
+                "engName": "Orange Bar",
+                "type": "Bar",
+                "moreInfoUrl": "https://www.facebook.com/bar.orange.club/"
+            }
+        ]
     }
 }

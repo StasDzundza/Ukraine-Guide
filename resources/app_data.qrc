@@ -64,24 +64,44 @@
         <file>app_data/localities_data/poltava/2.jpg</file>
         <file>app_data/localities_data/poltava/description.txt</file>
 
+        <file>app_data/localities_data/rivne/1.jpg</file>
+        <file>app_data/localities_data/rivne/2.jpeg</file>
         <file>app_data/localities_data/rivne/description.txt</file>
 
+        <file>app_data/localities_data/sumy/1.png</file>
+        <file>app_data/localities_data/sumy/2.jpg</file>
         <file>app_data/localities_data/sumy/description.txt</file>
 
+        <file>app_data/localities_data/ternopil/1.jpg</file>
+        <file>app_data/localities_data/ternopil/2.jpg</file>
         <file>app_data/localities_data/ternopil/description.txt</file>
 
+        <file>app_data/localities_data/uzhorod/1.jpg</file>
+        <file>app_data/localities_data/uzhorod/2.jpg</file>
         <file>app_data/localities_data/uzhorod/description.txt</file>
 
+        <file>app_data/localities_data/kharkiv/1.jpg</file>
+        <file>app_data/localities_data/kharkiv/2.jpg</file>
         <file>app_data/localities_data/kharkiv/description.txt</file>
 
+        <file>app_data/localities_data/kherson/1.jpg</file>
+        <file>app_data/localities_data/kherson/2.jpg</file>
         <file>app_data/localities_data/kherson/description.txt</file>
 
+        <file>app_data/localities_data/khmelnytskyi/1.jpg</file>
+        <file>app_data/localities_data/khmelnytskyi/2.jpg</file>
         <file>app_data/localities_data/khmelnytskyi/description.txt</file>
 
+        <file>app_data/localities_data/cherkasy/1.jpeg</file>
+        <file>app_data/localities_data/cherkasy/2.jpg</file>
         <file>app_data/localities_data/cherkasy/description.txt</file>
 
+        <file>app_data/localities_data/chernivtsi/1.jpg</file>
+        <file>app_data/localities_data/chernivtsi/2.jpg</file>
         <file>app_data/localities_data/chernivtsi/description.txt</file>
 
+        <file>app_data/localities_data/chernihiv/1.jpg</file>
+        <file>app_data/localities_data/chernihiv/2.jpg</file>
         <file>app_data/localities_data/chernihiv/description.txt</file>
 
     </qresource>
